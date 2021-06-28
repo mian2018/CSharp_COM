@@ -48,7 +48,7 @@ namespace CSharp_串口助手
             this.label3 = new System.Windows.Forms.Label();
             this.cmbDataBits = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.cmbCheck = new System.Windows.Forms.ComboBox();
+            this.cmbParity = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbBaudRate = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -56,6 +56,15 @@ namespace CSharp_串口助手
             this.btnOpen = new System.Windows.Forms.Button();
             this.txbRx = new System.Windows.Forms.TextBox();
             this.txbTx = new System.Windows.Forms.TextBox();
+            this.发送窗体右键菜单 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.打开文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.历史路径ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.清空文本框ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBoxTxInfo = new System.Windows.Forms.GroupBox();
             this.ckbTxUTF8 = new System.Windows.Forms.CheckBox();
             this.ckbTxWordWrap = new System.Windows.Forms.CheckBox();
@@ -86,27 +95,19 @@ namespace CSharp_串口助手
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serialPortCOM = new System.IO.Ports.SerialPort(this.components);
             this.接收窗口右键菜单 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.发送窗体右键菜单 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.TxAutoSendTimer = new System.Windows.Forms.Timer(this.components);
-            this.打开文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.历史路径ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.打开文件 = new System.Windows.Forms.OpenFileDialog();
-            this.清空文本框ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.保存文件 = new System.Windows.Forms.SaveFileDialog();
             this.tabControlCOM.SuspendLayout();
             this.Page1.SuspendLayout();
             this.状态栏.SuspendLayout();
             this.groupBoxCOMInfo.SuspendLayout();
+            this.发送窗体右键菜单.SuspendLayout();
             this.groupBoxTxInfo.SuspendLayout();
             this.groupBoxRxInfo.SuspendLayout();
             this.Page2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.菜单.SuspendLayout();
-            this.发送窗体右键菜单.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlCOM
@@ -221,7 +222,7 @@ namespace CSharp_串口助手
             this.groupBoxCOMInfo.Controls.Add(this.label3);
             this.groupBoxCOMInfo.Controls.Add(this.cmbDataBits);
             this.groupBoxCOMInfo.Controls.Add(this.label4);
-            this.groupBoxCOMInfo.Controls.Add(this.cmbCheck);
+            this.groupBoxCOMInfo.Controls.Add(this.cmbParity);
             this.groupBoxCOMInfo.Controls.Add(this.label2);
             this.groupBoxCOMInfo.Controls.Add(this.cmbBaudRate);
             this.groupBoxCOMInfo.Controls.Add(this.label1);
@@ -290,10 +291,9 @@ namespace CSharp_串口助手
             this.cmbDataBits.Font = new System.Drawing.Font("隶书", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cmbDataBits.FormattingEnabled = true;
             this.cmbDataBits.Items.AddRange(new object[] {
-            "8",
             "7",
-            "6",
-            "5"});
+            "8",
+            "9"});
             this.cmbDataBits.Location = new System.Drawing.Point(98, 140);
             this.cmbDataBits.Margin = new System.Windows.Forms.Padding(4);
             this.cmbDataBits.Name = "cmbDataBits";
@@ -311,20 +311,20 @@ namespace CSharp_串口助手
             this.label4.TabIndex = 15;
             this.label4.Text = "校验位";
             // 
-            // cmbCheck
+            // cmbParity
             // 
-            this.cmbCheck.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCheck.Font = new System.Drawing.Font("隶书", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.cmbCheck.FormattingEnabled = true;
-            this.cmbCheck.Items.AddRange(new object[] {
-            "None",
-            "Odd",
-            "Even"});
-            this.cmbCheck.Location = new System.Drawing.Point(98, 100);
-            this.cmbCheck.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbCheck.Name = "cmbCheck";
-            this.cmbCheck.Size = new System.Drawing.Size(90, 22);
-            this.cmbCheck.TabIndex = 14;
+            this.cmbParity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbParity.Font = new System.Drawing.Font("隶书", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cmbParity.FormattingEnabled = true;
+            this.cmbParity.Items.AddRange(new object[] {
+            "无",
+            "奇校验",
+            "偶校验"});
+            this.cmbParity.Location = new System.Drawing.Point(98, 100);
+            this.cmbParity.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbParity.Name = "cmbParity";
+            this.cmbParity.Size = new System.Drawing.Size(90, 22);
+            this.cmbParity.TabIndex = 14;
             // 
             // label2
             // 
@@ -380,6 +380,7 @@ namespace CSharp_串口助手
             this.cmbSerialName.Name = "cmbSerialName";
             this.cmbSerialName.Size = new System.Drawing.Size(90, 22);
             this.cmbSerialName.TabIndex = 9;
+            this.cmbSerialName.DropDown += new System.EventHandler(this.cmbSerialName_DropDown);
             // 
             // btnOpen
             // 
@@ -392,6 +393,7 @@ namespace CSharp_串口助手
             this.btnOpen.TabIndex = 3;
             this.btnOpen.Text = "打开串口";
             this.btnOpen.UseVisualStyleBackColor = false;
+            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
             // txbRx
             // 
@@ -427,6 +429,79 @@ namespace CSharp_串口助手
             this.txbTx.WordWrap = false;
             this.txbTx.DragDrop += new System.Windows.Forms.DragEventHandler(this.txbTx_DragDrop);
             this.txbTx.DragEnter += new System.Windows.Forms.DragEventHandler(this.txbTx_DragEnter);
+            // 
+            // 发送窗体右键菜单
+            // 
+            this.发送窗体右键菜单.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.打开文件ToolStripMenuItem,
+            this.历史路径ToolStripMenuItem,
+            this.清空文本框ToolStripMenuItem});
+            this.发送窗体右键菜单.Name = "发送窗体右键菜单";
+            this.发送窗体右键菜单.Size = new System.Drawing.Size(137, 70);
+            // 
+            // 打开文件ToolStripMenuItem
+            // 
+            this.打开文件ToolStripMenuItem.Image = global::CSharp_串口助手.Properties.Resources.打开;
+            this.打开文件ToolStripMenuItem.Name = "打开文件ToolStripMenuItem";
+            this.打开文件ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.打开文件ToolStripMenuItem.Text = "打开文件";
+            this.打开文件ToolStripMenuItem.Click += new System.EventHandler(this.打开文件ToolStripMenuItem_Click);
+            // 
+            // 历史路径ToolStripMenuItem
+            // 
+            this.历史路径ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem3,
+            this.toolStripMenuItem4,
+            this.toolStripMenuItem5,
+            this.toolStripMenuItem6});
+            this.历史路径ToolStripMenuItem.Image = global::CSharp_串口助手.Properties.Resources.历史记录;
+            this.历史路径ToolStripMenuItem.Name = "历史路径ToolStripMenuItem";
+            this.历史路径ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.历史路径ToolStripMenuItem.Text = "历史路径";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(80, 22);
+            this.toolStripMenuItem2.Text = " ";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(80, 22);
+            this.toolStripMenuItem3.Text = " ";
+            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(80, 22);
+            this.toolStripMenuItem4.Text = " ";
+            this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(80, 22);
+            this.toolStripMenuItem5.Text = " ";
+            this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(80, 22);
+            this.toolStripMenuItem6.Text = " ";
+            this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem_Click);
+            // 
+            // 清空文本框ToolStripMenuItem
+            // 
+            this.清空文本框ToolStripMenuItem.Image = global::CSharp_串口助手.Properties.Resources.清除;
+            this.清空文本框ToolStripMenuItem.Name = "清空文本框ToolStripMenuItem";
+            this.清空文本框ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.清空文本框ToolStripMenuItem.Text = "清空文本框";
+            this.清空文本框ToolStripMenuItem.Click += new System.EventHandler(this.清空文本框ToolStripMenuItem_Click);
             // 
             // groupBoxTxInfo
             // 
@@ -590,6 +665,7 @@ namespace CSharp_串口助手
             this.ckbSaveRxFile.TabIndex = 25;
             this.ckbSaveRxFile.Text = "保存接收";
             this.ckbSaveRxFile.UseVisualStyleBackColor = true;
+            this.ckbSaveRxFile.CheckedChanged += new System.EventHandler(this.ckbSaveRxFile_CheckedChanged);
             // 
             // ckbTimeStamp
             // 
@@ -734,75 +810,10 @@ namespace CSharp_串口助手
             this.接收窗口右键菜单.Name = "接收窗口右键菜单";
             this.接收窗口右键菜单.Size = new System.Drawing.Size(61, 4);
             // 
-            // 发送窗体右键菜单
-            // 
-            this.发送窗体右键菜单.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.打开文件ToolStripMenuItem,
-            this.历史路径ToolStripMenuItem,
-            this.清空文本框ToolStripMenuItem});
-            this.发送窗体右键菜单.Name = "发送窗体右键菜单";
-            this.发送窗体右键菜单.Size = new System.Drawing.Size(137, 70);
-            // 
             // TxAutoSendTimer
             // 
             this.TxAutoSendTimer.Interval = 500;
             this.TxAutoSendTimer.Tick += new System.EventHandler(this.TxAutoSendTimer_Tick);
-            // 
-            // 打开文件ToolStripMenuItem
-            // 
-            this.打开文件ToolStripMenuItem.Image = global::CSharp_串口助手.Properties.Resources.打开;
-            this.打开文件ToolStripMenuItem.Name = "打开文件ToolStripMenuItem";
-            this.打开文件ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.打开文件ToolStripMenuItem.Text = "打开文件";
-            this.打开文件ToolStripMenuItem.Click += new System.EventHandler(this.打开文件ToolStripMenuItem_Click);
-            // 
-            // 历史路径ToolStripMenuItem
-            // 
-            this.历史路径ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2,
-            this.toolStripMenuItem3,
-            this.toolStripMenuItem4,
-            this.toolStripMenuItem5,
-            this.toolStripMenuItem6});
-            this.历史路径ToolStripMenuItem.Image = global::CSharp_串口助手.Properties.Resources.历史记录;
-            this.历史路径ToolStripMenuItem.Name = "历史路径ToolStripMenuItem";
-            this.历史路径ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.历史路径ToolStripMenuItem.Text = "历史路径";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem2.Text = " ";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem3.Text = " ";
-            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem4.Text = " ";
-            this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem5.Text = " ";
-            this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem6
-            // 
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem6.Text = " ";
-            this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem_Click);
             // 
             // 打开文件
             // 
@@ -810,13 +821,12 @@ namespace CSharp_串口助手
             this.打开文件.FileName = "打开文件";
             this.打开文件.Filter = "文本文件|*.txt|二进制文件|*.bin|十六进制文件|*.hex|所有文件|*.*";
             // 
-            // 清空文本框ToolStripMenuItem
+            // 保存文件
             // 
-            this.清空文本框ToolStripMenuItem.Image = global::CSharp_串口助手.Properties.Resources.清除;
-            this.清空文本框ToolStripMenuItem.Name = "清空文本框ToolStripMenuItem";
-            this.清空文本框ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.清空文本框ToolStripMenuItem.Text = "清空文本框";
-            this.清空文本框ToolStripMenuItem.Click += new System.EventHandler(this.清空文本框ToolStripMenuItem_Click);
+            this.保存文件.DefaultExt = "txt";
+            this.保存文件.FileName = "log";
+            this.保存文件.Filter = "所有文件|*.*";
+            this.保存文件.Title = "保存文件";
             // 
             // 串口助手
             // 
@@ -839,6 +849,7 @@ namespace CSharp_串口助手
             this.状态栏.PerformLayout();
             this.groupBoxCOMInfo.ResumeLayout(false);
             this.groupBoxCOMInfo.PerformLayout();
+            this.发送窗体右键菜单.ResumeLayout(false);
             this.groupBoxTxInfo.ResumeLayout(false);
             this.groupBoxTxInfo.PerformLayout();
             this.groupBoxRxInfo.ResumeLayout(false);
@@ -847,7 +858,6 @@ namespace CSharp_串口助手
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.菜单.ResumeLayout(false);
             this.菜单.PerformLayout();
-            this.发送窗体右键菜单.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -881,7 +891,7 @@ namespace CSharp_串口助手
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cmbDataBits;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cmbCheck;
+        private System.Windows.Forms.ComboBox cmbParity;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbBaudRate;
         private System.Windows.Forms.Label label1;
@@ -922,6 +932,7 @@ namespace CSharp_串口助手
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
         private System.Windows.Forms.OpenFileDialog 打开文件;
         private System.Windows.Forms.ToolStripMenuItem 清空文本框ToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog 保存文件;
     }
 }
 

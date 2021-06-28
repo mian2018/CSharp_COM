@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
+using System.IO.Ports;
 using System.Linq;
 using System.Management;
 using System.Text;
@@ -42,7 +43,7 @@ namespace CSharp_串口助手
         {
             get 
             {
-                if (string.IsNullOrWhiteSpace(Properties.Settings.Default.CurrentFilePath) || !File.Exists(Properties.Settings.Default.CurrentFilePath))
+                if (string.IsNullOrWhiteSpace(Properties.Settings.Default.CurrentFilePath))
                 {
                     //result: X:\xxx\xxx\ (.exe文件所在的目录 + "\")
                     CurrentFilePath = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
@@ -69,44 +70,54 @@ namespace CSharp_串口助手
         /// <param name="data">串口接收字节数据</param>
         private void DisplayRxInfo(byte[] data)
         {
-            if (ckbStopDisPlay.Checked)
+            try
             {
-                //停止显示
-                return;
-            }
-
-            string str = "";
-            if (ckbRxHex.Checked)
-            {
-                //十六进制显示
-                str = MyConver.ByteToHex(data);
-                if (ckbTimeStamp.Checked)
+                if (ckbStopDisPlay.Checked)
                 {
-                    //时间戳
-                    str = str.Replace("0A", "0A \r\n[" + DateTime.Now.ToString() + "]->>>");
+                    //停止显示
+                    return;
                 }
-            }
-            else
-            {
-                str = RxEncoding.GetString(data);
-                if(ckbTimeStamp.Checked)
+
+                string str = "";
+                if (ckbRxHex.Checked)
                 {
-                    //时间戳
-                    str = str.Replace("\n", "\n[" + DateTime.Now.ToString() + "]->>>");
+                    //十六进制显示
+                    str = MyConver.ByteToHex(data);
+                    if (ckbTimeStamp.Checked)
+                    {
+                        //时间戳
+                        str = str.Replace("0A", "0A \r\n[" + DateTime.Now.Millisecond.ToString() + "]->>>");
+                    }
                 }
-            }
+                else
+                {
+                    str = RxEncoding.GetString(data);
+                    if (ckbTimeStamp.Checked)
+                    {
+                        //时间戳
+                        str = str.Replace("\n", "\n[" + DateTime.Now.Millisecond.ToString() + "]->>>");
+                    }
+                }
 
-            if (txbRx.TextLength > 4096)
-            {
-                //自动清除
-                txbRx.Text = "";
-            }
-            txbRx.AppendText(str);
 
-            if(ckbSaveRxFile.Checked)
+                if (ckbAutoClear.Checked && txbRx.TextLength > 4096)
+                {
+                    //自动清除
+                    txbRx.Text = "";
+                }
+                txbRx.AppendText(str);
+
+                if (ckbSaveRxFile.Checked)
+                {
+                    //将接收信息写入文件
+                    File.AppendAllText(CurrentFilePath, str);
+                }
+
+                RxCounter += data.Length;
+            }
+            catch
             {
-                //将接收信息写入文件
-                File.AppendAllText(CurrentFilePath, str);
+
             }
         }
 
@@ -182,6 +193,87 @@ namespace CSharp_串口助手
             }
         }
 
+        /// <summary>
+        /// 加载参数
+        /// </summary>
+        private void LoadParam()
+        {
+            UpdateSerialName(cmbSerialName, GetComName(), Properties.Settings.Default.serialPortName);
+            //UpdateSerialName(cmbSerialName, SerialPort.GetPortNames(), Properties.Settings.Default.serialPortName);
+
+            cmbBaudRate.Text = Properties.Settings.Default.serialPortBaud;
+            cmbParity.SelectedIndex = cmbParity.Items.IndexOf(Properties.Settings.Default.serialPortParity);
+            cmbDataBits.Text = Properties.Settings.Default.serialPortDataBits;
+            cmbStopBits.Text = Properties.Settings.Default.serialPortStopBits;
+        }
+
+        /// <summary>
+        /// 保存参数
+        /// </summary>
+        private void SaveParam()
+        {
+            Properties.Settings.Default.serialPortName = cmbSerialName.Text;
+            Properties.Settings.Default.serialPortBaud = cmbBaudRate.Text;
+            Properties.Settings.Default.serialPortParity = cmbParity.Text;
+            Properties.Settings.Default.serialPortDataBits = cmbDataBits.Text;
+            Properties.Settings.Default.serialPortStopBits = cmbStopBits.Text;
+        }
+
+        /// <summary>
+        /// 打开串口
+        /// </summary>
+        private void OpenSerialPort()
+        {
+            try
+            {
+                serialPortCOM.Close();
+                serialPortCOM.PortName = cmbSerialName.Text;
+                serialPortCOM.BaudRate = int.Parse(cmbBaudRate.Text);
+                serialPortCOM.Parity = (Parity)cmbParity.SelectedIndex;
+                serialPortCOM.DataBits = int.Parse(cmbDataBits.Text);
+                serialPortCOM.StopBits = (StopBits)int.Parse(cmbStopBits.Text);
+                serialPortCOM.Open();
+                toolStatusCOM.ForeColor = this.ForeColor;
+                toolStatusCOM.Text = "已打开";
+                btnOpen.Text = "关闭串口";
+                cmbSerialName.Enabled = false;
+                cmbBaudRate.Enabled = false;
+                cmbDataBits.Enabled = false;
+                cmbParity.Enabled = false;
+                cmbStopBits.Enabled = false;
+            }
+            catch
+            {
+                CloseSerialPort();
+                toolStatusCOM.ForeColor = Color.Red;
+                toolStatusCOM.Text = "打开出错";
+            }
+        }
+
+        /// <summary>
+        /// 关闭串口
+        /// </summary>
+        private void CloseSerialPort()
+        {
+            btnOpen.Text = "打开串口";
+            cmbSerialName.Enabled = true;
+            cmbBaudRate.Enabled = true;
+            cmbDataBits.Enabled = true;
+            cmbParity.Enabled = true;
+            cmbStopBits.Enabled = true;
+            try
+            {
+                serialPortCOM.Close();
+                toolStatusCOM.ForeColor = this.ForeColor;
+                toolStatusCOM.Text = "等待打开";
+                
+            }
+            catch
+            {
+                toolStatusCOM.ForeColor = Color.Red;
+                toolStatusCOM.Text = "关闭出错";
+            }
+        }
         public 串口助手()
         {
             InitializeComponent();
@@ -191,10 +283,11 @@ namespace CSharp_串口助手
             TxCounter = 0;
             RxCounter = 0;
             SaveFilePath("");
+            LoadParam();
         }
         private void 串口助手_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            SaveParam();
         }
         private void tabControlCOM_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -220,17 +313,17 @@ namespace CSharp_串口助手
         /// <param name="e"></param>
         private void serialPortCOM_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
-            //10ms处理一次串口接收
-            Thread.Sleep(10);
+            //50ms处理一次串口接收
+            Thread.Sleep(50);
 
             if(!serialPortCOM.IsOpen)
             {
                 return;
             }
+
             Byte[] recvByteTemp = new Byte[serialPortCOM.BytesToRead];
             serialPortCOM.Read(recvByteTemp, 0, recvByteTemp.Length);
-
-            this.Invoke(new Action<byte[]>((byte[] data)=> { DisplayRxInfo(data); }), recvByteTemp);
+            this.BeginInvoke(new Action<byte[]>((byte[] data)=> { DisplayRxInfo(data); }), recvByteTemp);
         }
 
 
@@ -307,6 +400,15 @@ namespace CSharp_串口助手
             {
                 Byte[] byteBuf = MyConver.HexToByte(txbTx.Text);
                 txbTx.Text = TxEncoding.GetString(byteBuf);
+            }
+        }
+
+        private void ckbSaveRxFile_CheckedChanged(object sender, EventArgs e)
+        {
+            保存文件.InitialDirectory = Path.GetDirectoryName(CurrentFilePath);
+            if (保存文件.ShowDialog() == DialogResult.OK)
+            {
+                CurrentFilePath = 保存文件.FileName;
             }
         }
 
@@ -441,7 +543,21 @@ namespace CSharp_串口助手
             txbTx.Text = OpenFile(((ToolStripMenuItem)sender).Text);
         }
 
-
+        private void btnOpen_Click(object sender, EventArgs e)
+        {
+            if(serialPortCOM.IsOpen)
+            {
+                CloseSerialPort();
+            }
+            else
+            {
+                OpenSerialPort();
+            }
+        }
+        private void cmbSerialName_DropDown(object sender, EventArgs e)
+        {
+            UpdateSerialName(cmbSerialName, GetComName(), cmbSerialName.Text);
+        }
 
         public const int WM_DEVICE_CHANGE = 0x219;            //设备改变           
         public const int DBT_DEVICEARRIVAL = 0x8000;          //设备插入
@@ -456,33 +572,30 @@ namespace CSharp_串口助手
             {
                 case DBT_DEVICEARRIVAL:
                     {
-                        if (serialPort1.IsOpen)
+                        if (serialPortCOM.IsOpen)
                         {
 
                         }
                         else
                         {
-                            UpdateSerialName();
+                            this.BeginInvoke(new Action(() => {
+                                UpdateSerialName(cmbSerialName, GetComName(), cmbSerialName.Text);
+                            }));
                         }
                     }
                     break;
                 case DBT_DEVICE_REMOVE_COMPLETE:
                     {
-                        if (serialPort1.IsOpen)
+                        if (serialPortCOM.IsOpen)
                         {
 
                         }
                         else
                         {
-                            serialPort1.Close();
-                            UpdateSerialName();
-                            linkLabel1.Text = "准备就绪";
-                            button1.Text = "打开串口";
-                            comboBoxSerialName.Enabled = true;
-                            comboBoxBaudRate.Enabled = true;
-                            comboBoxDataBits.Enabled = true;
-                            comboBoxCheck.Enabled = true;
-                            comboBoxStopBits.Enabled = true;
+                            this.BeginInvoke(new Action(() => { 
+                                CloseSerialPort(); 
+                                UpdateSerialName(cmbSerialName, GetComName(), cmbSerialName.Text); 
+                            }));
                         }
                     }
                     break;
@@ -497,7 +610,6 @@ namespace CSharp_串口助手
         /// <param name="comName"></param>
         public void UpdateSerialName(ComboBox combox, string[] ports, string comName)
         {
-            /* 获取com口标号 */
             try
             {
                 Array.Sort(ports);
@@ -520,13 +632,13 @@ namespace CSharp_串口助手
             }
         }
         /// <summary>
-        /// 获取COM口
+        /// 获取COM口 从设备管理器获取COM口详细信息，筛选后返回符合要求的COM口（筛选包涵 str 字符串的COM口）
         /// </summary>
         /// <returns></returns>
         public string[] GetComName()
         {
             List<string> coms = new List<string>();
-            string str = "COM";
+            string str = "COM";  //筛选关键字 可自行修改
             try
             {
                 //搜索设备管理器中的所有条目
@@ -579,62 +691,6 @@ namespace CSharp_串口助手
                 return strings[0];
             }
             return null;
-
-        }
-        /// <summary>
-        /// 设置波特率
-        /// </summary>
-        /// <param name="baud"></param>
-        public void SetComBaud(int baud)
-        {
-            scanSerialPort.BaudRate = baud;
-        }
-
-        /// <summary>
-        /// 打开扫码枪串口
-        /// </summary>
-        /// <param name="portName">串口名</param>
-        /// <param name="portBaud">波特率</param>
-        public void Open(string portName, int portBaud)
-        {
-            try
-            {
-                if (!IsOK || scanSerialPort.PortName != portName || scanSerialPort.BaudRate != portBaud)
-                {
-                    scanSerialPort.Close();
-                    scanSerialPort.PortName = portName;
-                    scanSerialPort.BaudRate = portBaud;
-                    scanSerialPort.Open();
-                    IsOK = true;
-                }
-            }
-            catch (Exception e)
-            {
-                IsOK = false;
-                MessageBox.Show(e.Message);
-            }
-        }
-        /// <summary>
-        /// 打开扫码枪串口，如果参数串口名字不存在，则自动打开存在的
-        /// </summary>
-        /// <param name="comName">串口名，如果该串口名不存在，则打开存在的串口</param>
-        public void Open(string comName)
-        {
-            string str = GetComName(comName);
-            if (!string.IsNullOrEmpty(str))
-            {
-                Open(str, 115200);
-            }
-        }
-        /// <summary>
-        /// 关闭扫码枪
-        /// </summary>
-        public void Close()
-        {
-            scanSerialPort.Close();
-            scanRxBuff.Clear();
-            IsOK = false;
-            bytesCodeIsOK = false;
         }
 
         

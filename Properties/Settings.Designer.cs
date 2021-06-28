@@ -94,5 +94,65 @@ namespace CSharp_串口助手.Properties {
                 this["logPath5"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string serialPortName {
+            get {
+                return ((string)(this["serialPortName"]));
+            }
+            set {
+                this["serialPortName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("115200")]
+        public string serialPortBaud {
+            get {
+                return ((string)(this["serialPortBaud"]));
+            }
+            set {
+                this["serialPortBaud"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("无")]
+        public string serialPortParity {
+            get {
+                return ((string)(this["serialPortParity"]));
+            }
+            set {
+                this["serialPortParity"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("8")]
+        public string serialPortDataBits {
+            get {
+                return ((string)(this["serialPortDataBits"]));
+            }
+            set {
+                this["serialPortDataBits"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public string serialPortStopBits {
+            get {
+                return ((string)(this["serialPortStopBits"]));
+            }
+            set {
+                this["serialPortStopBits"] = value;
+            }
+        }
     }
 }
