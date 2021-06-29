@@ -30,6 +30,7 @@ namespace CSharp_串口助手
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(串口助手));
             this.tabControlCOM = new System.Windows.Forms.TabControl();
             this.Page1 = new System.Windows.Forms.TabPage();
             this.状态栏 = new System.Windows.Forms.StatusStrip();
@@ -228,7 +229,7 @@ namespace CSharp_串口助手
             this.groupBoxCOMInfo.Controls.Add(this.label1);
             this.groupBoxCOMInfo.Controls.Add(this.cmbSerialName);
             this.groupBoxCOMInfo.Controls.Add(this.btnOpen);
-            this.groupBoxCOMInfo.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBoxCOMInfo.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBoxCOMInfo.Location = new System.Drawing.Point(0, 3);
             this.groupBoxCOMInfo.Margin = new System.Windows.Forms.Padding(0);
             this.groupBoxCOMInfo.Name = "groupBoxCOMInfo";
@@ -241,8 +242,8 @@ namespace CSharp_串口助手
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("隶书", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.Location = new System.Drawing.Point(4, 218);
+            this.label6.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label6.Location = new System.Drawing.Point(5, 220);
             this.label6.Margin = new System.Windows.Forms.Padding(0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(72, 16);
@@ -252,8 +253,8 @@ namespace CSharp_串口助手
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("隶书", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(4, 179);
+            this.label5.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label5.Location = new System.Drawing.Point(5, 181);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 16);
@@ -263,7 +264,7 @@ namespace CSharp_串口助手
             // cmbStopBits
             // 
             this.cmbStopBits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbStopBits.Font = new System.Drawing.Font("隶书", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cmbStopBits.Font = new System.Drawing.Font("楷体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cmbStopBits.FormattingEnabled = true;
             this.cmbStopBits.Items.AddRange(new object[] {
             "1",
@@ -277,8 +278,8 @@ namespace CSharp_串口助手
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("隶书", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(4, 139);
+            this.label3.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(5, 141);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 16);
@@ -288,12 +289,12 @@ namespace CSharp_串口助手
             // cmbDataBits
             // 
             this.cmbDataBits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbDataBits.Font = new System.Drawing.Font("隶书", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cmbDataBits.Font = new System.Drawing.Font("楷体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cmbDataBits.FormattingEnabled = true;
             this.cmbDataBits.Items.AddRange(new object[] {
-            "7",
             "8",
-            "9"});
+            "7",
+            "6"});
             this.cmbDataBits.Location = new System.Drawing.Point(98, 140);
             this.cmbDataBits.Margin = new System.Windows.Forms.Padding(4);
             this.cmbDataBits.Name = "cmbDataBits";
@@ -303,8 +304,8 @@ namespace CSharp_串口助手
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("隶书", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(4, 99);
+            this.label4.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.Location = new System.Drawing.Point(5, 101);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 16);
@@ -314,7 +315,7 @@ namespace CSharp_串口助手
             // cmbParity
             // 
             this.cmbParity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbParity.Font = new System.Drawing.Font("隶书", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cmbParity.Font = new System.Drawing.Font("楷体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cmbParity.FormattingEnabled = true;
             this.cmbParity.Items.AddRange(new object[] {
             "无",
@@ -329,8 +330,8 @@ namespace CSharp_串口助手
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("隶书", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(4, 59);
+            this.label2.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Location = new System.Drawing.Point(5, 61);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 16);
@@ -339,7 +340,7 @@ namespace CSharp_串口助手
             // 
             // cmbBaudRate
             // 
-            this.cmbBaudRate.Font = new System.Drawing.Font("隶书", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cmbBaudRate.Font = new System.Drawing.Font("楷体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cmbBaudRate.FormattingEnabled = true;
             this.cmbBaudRate.Items.AddRange(new object[] {
             "2400",
@@ -361,8 +362,8 @@ namespace CSharp_串口助手
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("隶书", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(4, 19);
+            this.label1.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(5, 21);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 16);
@@ -373,7 +374,7 @@ namespace CSharp_串口助手
             // 
             this.cmbSerialName.BackColor = System.Drawing.SystemColors.Window;
             this.cmbSerialName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSerialName.Font = new System.Drawing.Font("隶书", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cmbSerialName.Font = new System.Drawing.Font("楷体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cmbSerialName.FormattingEnabled = true;
             this.cmbSerialName.Location = new System.Drawing.Point(98, 20);
             this.cmbSerialName.Margin = new System.Windows.Forms.Padding(4);
@@ -385,7 +386,7 @@ namespace CSharp_串口助手
             // btnOpen
             // 
             this.btnOpen.BackColor = System.Drawing.Color.DeepPink;
-            this.btnOpen.Font = new System.Drawing.Font("隶书", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnOpen.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnOpen.Location = new System.Drawing.Point(98, 218);
             this.btnOpen.Margin = new System.Windows.Forms.Padding(0);
             this.btnOpen.Name = "btnOpen";
@@ -432,18 +433,19 @@ namespace CSharp_串口助手
             // 
             // 发送窗体右键菜单
             // 
+            this.发送窗体右键菜单.Font = new System.Drawing.Font("楷体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.发送窗体右键菜单.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.打开文件ToolStripMenuItem,
             this.历史路径ToolStripMenuItem,
             this.清空文本框ToolStripMenuItem});
             this.发送窗体右键菜单.Name = "发送窗体右键菜单";
-            this.发送窗体右键菜单.Size = new System.Drawing.Size(137, 70);
+            this.发送窗体右键菜单.Size = new System.Drawing.Size(131, 70);
             // 
             // 打开文件ToolStripMenuItem
             // 
             this.打开文件ToolStripMenuItem.Image = global::CSharp_串口助手.Properties.Resources.打开;
             this.打开文件ToolStripMenuItem.Name = "打开文件ToolStripMenuItem";
-            this.打开文件ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.打开文件ToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.打开文件ToolStripMenuItem.Text = "打开文件";
             this.打开文件ToolStripMenuItem.Click += new System.EventHandler(this.打开文件ToolStripMenuItem_Click);
             // 
@@ -457,41 +459,41 @@ namespace CSharp_串口助手
             this.toolStripMenuItem6});
             this.历史路径ToolStripMenuItem.Image = global::CSharp_串口助手.Properties.Resources.历史记录;
             this.历史路径ToolStripMenuItem.Name = "历史路径ToolStripMenuItem";
-            this.历史路径ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.历史路径ToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.历史路径ToolStripMenuItem.Text = "历史路径";
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(80, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(76, 22);
             this.toolStripMenuItem2.Text = " ";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(80, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(76, 22);
             this.toolStripMenuItem3.Text = " ";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem_Click);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(80, 22);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(76, 22);
             this.toolStripMenuItem4.Text = " ";
             this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem_Click);
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(80, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(76, 22);
             this.toolStripMenuItem5.Text = " ";
             this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem_Click);
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(80, 22);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(76, 22);
             this.toolStripMenuItem6.Text = " ";
             this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem_Click);
             // 
@@ -499,7 +501,7 @@ namespace CSharp_串口助手
             // 
             this.清空文本框ToolStripMenuItem.Image = global::CSharp_串口助手.Properties.Resources.清除;
             this.清空文本框ToolStripMenuItem.Name = "清空文本框ToolStripMenuItem";
-            this.清空文本框ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.清空文本框ToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.清空文本框ToolStripMenuItem.Text = "清空文本框";
             this.清空文本框ToolStripMenuItem.Click += new System.EventHandler(this.清空文本框ToolStripMenuItem_Click);
             // 
@@ -560,7 +562,7 @@ namespace CSharp_串口助手
             // btnTx
             // 
             this.btnTx.BackColor = System.Drawing.Color.DeepPink;
-            this.btnTx.Font = new System.Drawing.Font("隶书", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnTx.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnTx.Location = new System.Drawing.Point(98, 43);
             this.btnTx.Margin = new System.Windows.Forms.Padding(4);
             this.btnTx.Name = "btnTx";
@@ -700,7 +702,7 @@ namespace CSharp_串口助手
             // btnClearRx
             // 
             this.btnClearRx.BackColor = System.Drawing.Color.DeepPink;
-            this.btnClearRx.Font = new System.Drawing.Font("隶书", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnClearRx.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnClearRx.Location = new System.Drawing.Point(97, 15);
             this.btnClearRx.Margin = new System.Windows.Forms.Padding(4);
             this.btnClearRx.Name = "btnClearRx";
@@ -836,6 +838,7 @@ namespace CSharp_串口助手
             this.Controls.Add(this.tabControlCOM);
             this.Controls.Add(this.菜单);
             this.Font = new System.Drawing.Font("楷体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.菜单;
             this.MinimumSize = new System.Drawing.Size(511, 622);
             this.Name = "串口助手";

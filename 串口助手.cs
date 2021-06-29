@@ -205,6 +205,18 @@ namespace CSharp_串口助手
             cmbParity.SelectedIndex = cmbParity.Items.IndexOf(Properties.Settings.Default.serialPortParity);
             cmbDataBits.Text = Properties.Settings.Default.serialPortDataBits;
             cmbStopBits.Text = Properties.Settings.Default.serialPortStopBits;
+
+            ckbStopDisPlay.Checked = Properties.Settings.Default.ckbStopDisPlay;
+            ckbAutoClear.Checked = Properties.Settings.Default.ckbAutoClear;
+            ckbRxHex.Checked = Properties.Settings.Default.ckbRxHex;
+            ckbSaveRxFile.Checked = Properties.Settings.Default.ckbSaveRxFile;
+            ckbTimeStamp.Checked = Properties.Settings.Default.ckbTimeStamp;
+            ckbRxWordWrap.Checked = Properties.Settings.Default.ckbRxWordWrap;
+            ckbRxUTF8.Checked = Properties.Settings.Default.ckbRxUTF8;
+            ckbAutoTx.Checked = Properties.Settings.Default.ckbAutoTx;
+            ckbTxWordWrap.Checked = Properties.Settings.Default.ckbTxWordWrap;
+            ckbTxUTF8.Checked = Properties.Settings.Default.ckbTxUTF8;
+            txbTxAutoTime.Text = Properties.Settings.Default.txbTxAutoTime;
         }
 
         /// <summary>
@@ -217,6 +229,20 @@ namespace CSharp_串口助手
             Properties.Settings.Default.serialPortParity = cmbParity.Text;
             Properties.Settings.Default.serialPortDataBits = cmbDataBits.Text;
             Properties.Settings.Default.serialPortStopBits = cmbStopBits.Text;
+
+            Properties.Settings.Default.ckbStopDisPlay = ckbStopDisPlay.Checked;
+            Properties.Settings.Default.ckbAutoClear = ckbAutoClear.Checked;
+            Properties.Settings.Default.ckbRxHex = ckbRxHex.Checked;
+            Properties.Settings.Default.ckbSaveRxFile = ckbSaveRxFile.Checked;
+            Properties.Settings.Default.ckbTimeStamp = ckbTimeStamp.Checked;
+            Properties.Settings.Default.ckbRxWordWrap = ckbRxWordWrap.Checked;
+            Properties.Settings.Default.ckbRxUTF8 = ckbRxUTF8.Checked;
+            Properties.Settings.Default.ckbAutoTx = ckbAutoTx.Checked;
+            Properties.Settings.Default.ckbTxWordWrap = ckbTxWordWrap.Checked;
+            Properties.Settings.Default.ckbTxUTF8 = ckbTxUTF8.Checked;
+            Properties.Settings.Default.txbTxAutoTime = txbTxAutoTime.Text;
+
+            Properties.Settings.Default.Save();
         }
 
         /// <summary>
@@ -692,7 +718,5 @@ namespace CSharp_串口助手
             }
             return null;
         }
-
-        
     }
 }

@@ -154,5 +154,149 @@ namespace CSharp_串口助手.Properties {
                 this["serialPortStopBits"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ckbStopDisPlay {
+            get {
+                return ((bool)(this["ckbStopDisPlay"]));
+            }
+            set {
+                this["ckbStopDisPlay"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ckbAutoClear {
+            get {
+                return ((bool)(this["ckbAutoClear"]));
+            }
+            set {
+                this["ckbAutoClear"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ckbRxHex {
+            get {
+                return ((bool)(this["ckbRxHex"]));
+            }
+            set {
+                this["ckbRxHex"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ckbSaveRxFile {
+            get {
+                return ((bool)(this["ckbSaveRxFile"]));
+            }
+            set {
+                this["ckbSaveRxFile"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ckbTimeStamp {
+            get {
+                return ((bool)(this["ckbTimeStamp"]));
+            }
+            set {
+                this["ckbTimeStamp"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ckbRxWordWrap {
+            get {
+                return ((bool)(this["ckbRxWordWrap"]));
+            }
+            set {
+                this["ckbRxWordWrap"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ckbRxUTF8 {
+            get {
+                return ((bool)(this["ckbRxUTF8"]));
+            }
+            set {
+                this["ckbRxUTF8"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ckbAutoTx {
+            get {
+                return ((bool)(this["ckbAutoTx"]));
+            }
+            set {
+                this["ckbAutoTx"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ckbTxHex {
+            get {
+                return ((bool)(this["ckbTxHex"]));
+            }
+            set {
+                this["ckbTxHex"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ckbTxWordWrap {
+            get {
+                return ((bool)(this["ckbTxWordWrap"]));
+            }
+            set {
+                this["ckbTxWordWrap"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ckbTxUTF8 {
+            get {
+                return ((bool)(this["ckbTxUTF8"]));
+            }
+            set {
+                this["ckbTxUTF8"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string txbTxAutoTime {
+            get {
+                return ((string)(this["txbTxAutoTime"]));
+            }
+            set {
+                this["txbTxAutoTime"] = value;
+            }
+        }
     }
 }

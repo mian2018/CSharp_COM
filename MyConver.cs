@@ -23,6 +23,11 @@ namespace CSharp_串口助手
             return stringBuilder.ToString();
         }
 
+        /// <summary>
+        /// hex string字节数组转byte
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         public static byte[] HexToByte(string str)
         {
             str = str.Replace(" ", "");
@@ -46,7 +51,5 @@ namespace CSharp_串口助手
             }
             return bytesHex;
         }
-
-
     }
 }
