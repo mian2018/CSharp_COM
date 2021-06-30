@@ -43,12 +43,11 @@ namespace CSharp_串口助手
         {
             get 
             {
-                if (string.IsNullOrWhiteSpace(Properties.Settings.Default.CurrentFilePath))
-                {
-                    //result: X:\xxx\xxx\ (.exe文件所在的目录 + "\")
-                    CurrentFilePath = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
-                }
-
+                //if (string.IsNullOrWhiteSpace(Properties.Settings.Default.CurrentFilePath))
+                //{
+                //    //result: X:\xxx\xxx\ (.exe文件所在的目录 + "\")
+                //    CurrentFilePath = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
+                //}
                 return Properties.Settings.Default.CurrentFilePath;
             }
             set 
@@ -86,7 +85,7 @@ namespace CSharp_串口助手
                     if (ckbTimeStamp.Checked)
                     {
                         //时间戳
-                        str = str.Replace("0A", "0A \r\n[" + DateTime.Now.Millisecond.ToString() + "]->>>");
+                        str = str.Replace("0A", "0A \r\n[" + DateTime.Now.ToString("HH':'mm':'ss'.'fff") + "]->>>");
                     }
                 }
                 else
@@ -95,7 +94,7 @@ namespace CSharp_串口助手
                     if (ckbTimeStamp.Checked)
                     {
                         //时间戳
-                        str = str.Replace("\n", "\n[" + DateTime.Now.Millisecond.ToString() + "]->>>");
+                        str = str.Replace("\n", "\n[" + DateTime.Now.ToString("HH':'mm':'ss'.'fff") + "]->>>");
                     }
                 }
 
@@ -107,10 +106,14 @@ namespace CSharp_串口助手
                 }
                 txbRx.AppendText(str);
 
-                if (ckbSaveRxFile.Checked)
+                if (ckbSaveRxFile.Checked && !string.IsNullOrWhiteSpace(CurrentFilePath))
                 {
                     //将接收信息写入文件
                     File.AppendAllText(CurrentFilePath, str);
+                }
+                else
+                {
+                    ckbSaveRxFile.Checked = false;
                 }
 
                 RxCounter += data.Length;
@@ -217,6 +220,8 @@ namespace CSharp_串口助手
             ckbTxWordWrap.Checked = Properties.Settings.Default.ckbTxWordWrap;
             ckbTxUTF8.Checked = Properties.Settings.Default.ckbTxUTF8;
             txbTxAutoTime.Text = Properties.Settings.Default.txbTxAutoTime;
+            ckbTxHex.Checked = Properties.Settings.Default.ckbTxHex;
+
         }
 
         /// <summary>
@@ -241,8 +246,9 @@ namespace CSharp_串口助手
             Properties.Settings.Default.ckbTxWordWrap = ckbTxWordWrap.Checked;
             Properties.Settings.Default.ckbTxUTF8 = ckbTxUTF8.Checked;
             Properties.Settings.Default.txbTxAutoTime = txbTxAutoTime.Text;
-
+            Properties.Settings.Default.ckbTxHex = ckbTxHex.Checked;
             Properties.Settings.Default.Save();
+            
         }
 
         /// <summary>
@@ -310,16 +316,19 @@ namespace CSharp_串口助手
             RxCounter = 0;
             SaveFilePath("");
             LoadParam();
+            DataTableInit();
         }
         private void 串口助手_FormClosing(object sender, FormClosingEventArgs e)
         {
             SaveParam();
+            DataTableSave();
         }
         private void tabControlCOM_SelectedIndexChanged(object sender, EventArgs e)
         {
             tabControlCOM.SelectedTab.Controls.Add(groupBoxCOMInfo);
             tabControlCOM.SelectedTab.Controls.Add(groupBoxRxInfo);
             tabControlCOM.SelectedTab.Controls.Add(groupBoxTxInfo);
+            tabControlCOM.SelectedTab.Controls.Add(状态栏);
         }
 
         private void toolStatusRxCounter_DoubleClick(object sender, EventArgs e)
@@ -393,7 +402,7 @@ namespace CSharp_串口助手
         {
             if (serialPortCOM.IsOpen)
             {
-                if (ckbRxHex.Checked)
+                if (ckbTxHex.Checked)
                 {
                     //十六进制发送 
                     Byte[] byteBuf = MyConver.HexToByte(txbTx.Text);
@@ -431,10 +440,16 @@ namespace CSharp_串口助手
 
         private void ckbSaveRxFile_CheckedChanged(object sender, EventArgs e)
         {
-            保存文件.InitialDirectory = Path.GetDirectoryName(CurrentFilePath);
-            if (保存文件.ShowDialog() == DialogResult.OK)
+            if(!ckbSaveRxFile.Checked)
             {
-                CurrentFilePath = 保存文件.FileName;
+                CurrentFilePath = "";
+            }
+            else if(string.IsNullOrWhiteSpace(CurrentFilePath))
+            {
+                if (保存文件.ShowDialog() == DialogResult.OK)
+                {
+                    CurrentFilePath = 保存文件.FileName;
+                }
             }
         }
 
@@ -479,6 +494,10 @@ namespace CSharp_串口助手
         /// <param name="e"></param>
         private void ckbAutoTx_CheckedChanged(object sender, EventArgs e)
         {
+            if(!serialPortCOM.IsOpen)
+            {
+                ckbAutoTx.Checked = false;
+            }
             TxAutoSendTimer.Enabled = ckbAutoTx.Checked;
         }
 
@@ -718,5 +737,7 @@ namespace CSharp_串口助手
             }
             return null;
         }
+
+        
     }
 }

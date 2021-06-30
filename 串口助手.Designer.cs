@@ -84,10 +84,7 @@ namespace CSharp_串口助手
             this.ckbAutoClear = new System.Windows.Forms.CheckBox();
             this.btnClearRx = new System.Windows.Forms.Button();
             this.Page2 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataGridViewCmd = new System.Windows.Forms.DataGridView();
             this.Page3 = new System.Windows.Forms.TabPage();
             this.Page4 = new System.Windows.Forms.TabPage();
             this.菜单 = new System.Windows.Forms.MenuStrip();
@@ -99,6 +96,12 @@ namespace CSharp_串口助手
             this.TxAutoSendTimer = new System.Windows.Forms.Timer(this.components);
             this.打开文件 = new System.Windows.Forms.OpenFileDialog();
             this.保存文件 = new System.Windows.Forms.SaveFileDialog();
+            this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cmd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hex = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.WordWarp = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Send = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabControlCOM.SuspendLayout();
             this.Page1.SuspendLayout();
             this.状态栏.SuspendLayout();
@@ -107,7 +110,7 @@ namespace CSharp_串口助手
             this.groupBoxTxInfo.SuspendLayout();
             this.groupBoxRxInfo.SuspendLayout();
             this.Page2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewCmd)).BeginInit();
             this.菜单.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -398,8 +401,7 @@ namespace CSharp_串口助手
             // 
             // txbRx
             // 
-            this.txbRx.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.txbRx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txbRx.BackColor = System.Drawing.SystemColors.Control;
             this.txbRx.Location = new System.Drawing.Point(200, 3);
@@ -417,7 +419,8 @@ namespace CSharp_串口助手
             this.txbTx.AcceptsReturn = true;
             this.txbTx.AcceptsTab = true;
             this.txbTx.AllowDrop = true;
-            this.txbTx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.txbTx.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txbTx.ContextMenuStrip = this.发送窗体右键菜单;
             this.txbTx.Location = new System.Drawing.Point(200, 398);
@@ -507,7 +510,8 @@ namespace CSharp_串口助手
             // 
             // groupBoxTxInfo
             // 
-            this.groupBoxTxInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBoxTxInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBoxTxInfo.AutoSize = true;
             this.groupBoxTxInfo.BackColor = System.Drawing.Color.DodgerBlue;
             this.groupBoxTxInfo.Controls.Add(this.ckbTxUTF8);
@@ -577,9 +581,9 @@ namespace CSharp_串口助手
             this.ckbTxHex.AutoSize = true;
             this.ckbTxHex.Location = new System.Drawing.Point(3, 65);
             this.ckbTxHex.Name = "ckbTxHex";
-            this.ckbTxHex.Size = new System.Drawing.Size(96, 16);
+            this.ckbTxHex.Size = new System.Drawing.Size(72, 16);
             this.ckbTxHex.TabIndex = 23;
-            this.ckbTxHex.Text = "十六进制发送";
+            this.ckbTxHex.Text = "十六进制";
             this.ckbTxHex.UseVisualStyleBackColor = true;
             this.ckbTxHex.CheckedChanged += new System.EventHandler(this.ckbTxHex_CheckedChanged);
             // 
@@ -607,8 +611,6 @@ namespace CSharp_串口助手
             // 
             // groupBoxRxInfo
             // 
-            this.groupBoxRxInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBoxRxInfo.AutoSize = true;
             this.groupBoxRxInfo.BackColor = System.Drawing.Color.DodgerBlue;
             this.groupBoxRxInfo.Controls.Add(this.ckbRxUTF8);
@@ -684,9 +686,9 @@ namespace CSharp_串口助手
             this.ckbRxHex.AutoSize = true;
             this.ckbRxHex.Location = new System.Drawing.Point(2, 69);
             this.ckbRxHex.Name = "ckbRxHex";
-            this.ckbRxHex.Size = new System.Drawing.Size(96, 16);
+            this.ckbRxHex.Size = new System.Drawing.Size(72, 16);
             this.ckbRxHex.TabIndex = 23;
-            this.ckbRxHex.Text = "十六进制接收";
+            this.ckbRxHex.Text = "十六进制";
             this.ckbRxHex.UseVisualStyleBackColor = true;
             // 
             // ckbAutoClear
@@ -714,7 +716,7 @@ namespace CSharp_串口助手
             // 
             // Page2
             // 
-            this.Page2.Controls.Add(this.dataGridView1);
+            this.Page2.Controls.Add(this.DataGridViewCmd);
             this.Page2.Location = new System.Drawing.Point(4, 22);
             this.Page2.Name = "Page2";
             this.Page2.Padding = new System.Windows.Forms.Padding(3);
@@ -723,34 +725,33 @@ namespace CSharp_串口助手
             this.Page2.Text = "多条发送";
             this.Page2.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // DataGridViewCmd
             // 
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3});
-            this.dataGridView1.Location = new System.Drawing.Point(194, 126);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(343, 150);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Column1";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Column2";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Column3";
-            this.Column3.Name = "Column3";
+            this.DataGridViewCmd.AllowUserToOrderColumns = true;
+            this.DataGridViewCmd.AllowUserToResizeRows = false;
+            this.DataGridViewCmd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DataGridViewCmd.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DataGridViewCmd.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.DataGridViewCmd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewCmd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Index,
+            this.Cmd,
+            this.Note,
+            this.Hex,
+            this.WordWarp,
+            this.Send});
+            this.DataGridViewCmd.GridColor = System.Drawing.SystemColors.Control;
+            this.DataGridViewCmd.Location = new System.Drawing.Point(200, 398);
+            this.DataGridViewCmd.Name = "DataGridViewCmd";
+            this.DataGridViewCmd.RowHeadersVisible = false;
+            this.DataGridViewCmd.RowTemplate.Height = 23;
+            this.DataGridViewCmd.Size = new System.Drawing.Size(345, 121);
+            this.DataGridViewCmd.TabIndex = 0;
+            this.DataGridViewCmd.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewCmd_CellContentClick);
+            this.DataGridViewCmd.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridViewCmd_CellFormatting);
+            this.DataGridViewCmd.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.DataGridViewCmd_UserAddedRow);
             // 
             // Page3
             // 
@@ -830,6 +831,55 @@ namespace CSharp_串口助手
             this.保存文件.Filter = "所有文件|*.*";
             this.保存文件.Title = "保存文件";
             // 
+            // Index
+            // 
+            this.Index.DataPropertyName = "DataTableIndex";
+            this.Index.FillWeight = 10F;
+            this.Index.HeaderText = "序号";
+            this.Index.Name = "Index";
+            this.Index.ReadOnly = true;
+            // 
+            // Cmd
+            // 
+            this.Cmd.DataPropertyName = "DataTableCmd";
+            this.Cmd.FillWeight = 30F;
+            this.Cmd.HeaderText = "指令";
+            this.Cmd.Name = "Cmd";
+            // 
+            // Note
+            // 
+            this.Note.DataPropertyName = "DataTableNote";
+            this.Note.FillWeight = 30F;
+            this.Note.HeaderText = "注释";
+            this.Note.Name = "Note";
+            // 
+            // Hex
+            // 
+            this.Hex.DataPropertyName = "DataTableHex";
+            this.Hex.FillWeight = 10F;
+            this.Hex.HeaderText = "Hex";
+            this.Hex.Name = "Hex";
+            this.Hex.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Hex.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // WordWarp
+            // 
+            this.WordWarp.DataPropertyName = "DataTableWordWarp";
+            this.WordWarp.FillWeight = 10F;
+            this.WordWarp.HeaderText = "换行";
+            this.WordWarp.Name = "WordWarp";
+            this.WordWarp.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.WordWarp.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Send
+            // 
+            this.Send.DataPropertyName = "DataTableSend";
+            this.Send.FillWeight = 10F;
+            this.Send.HeaderText = "发送";
+            this.Send.Name = "Send";
+            this.Send.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Send.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // 串口助手
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -840,7 +890,7 @@ namespace CSharp_串口助手
             this.Font = new System.Drawing.Font("楷体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.菜单;
-            this.MinimumSize = new System.Drawing.Size(511, 622);
+            this.MinimumSize = new System.Drawing.Size(569, 646);
             this.Name = "串口助手";
             this.Text = "串口助手";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.串口助手_FormClosing);
@@ -858,7 +908,7 @@ namespace CSharp_串口助手
             this.groupBoxRxInfo.ResumeLayout(false);
             this.groupBoxRxInfo.PerformLayout();
             this.Page2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewCmd)).EndInit();
             this.菜单.ResumeLayout(false);
             this.菜单.PerformLayout();
             this.ResumeLayout(false);
@@ -917,10 +967,7 @@ namespace CSharp_串口助手
         private System.Windows.Forms.CheckBox ckbTxWordWrap;
         private System.Windows.Forms.CheckBox ckbRxWordWrap;
         private System.Windows.Forms.CheckBox ckbStopDisPlay;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridView DataGridViewCmd;
         private System.Windows.Forms.CheckBox ckbTxUTF8;
         private System.Windows.Forms.CheckBox ckbRxUTF8;
         private System.Windows.Forms.ContextMenuStrip 接收窗口右键菜单;
@@ -936,6 +983,12 @@ namespace CSharp_串口助手
         private System.Windows.Forms.OpenFileDialog 打开文件;
         private System.Windows.Forms.ToolStripMenuItem 清空文本框ToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog 保存文件;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Index;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cmd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Note;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Hex;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn WordWarp;
+        private System.Windows.Forms.DataGridViewButtonColumn Send;
     }
 }
 
