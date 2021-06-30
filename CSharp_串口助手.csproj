@@ -73,6 +73,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="bin\Debug\CSharp_串口助手.exe.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -99,7 +100,12 @@
     <None Include="ico\清除.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Debug\CSharp_串口助手.exe" />
+    <Content Include="bin\Debug\CSharp_串口助手.pdb" />
     <Content Include="image.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
