@@ -30,6 +30,7 @@ namespace CSharp_串口助手
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(串口助手));
             this.tabControlCOM = new System.Windows.Forms.TabControl();
             this.Page1 = new System.Windows.Forms.TabPage();
@@ -85,23 +86,23 @@ namespace CSharp_串口助手
             this.btnClearRx = new System.Windows.Forms.Button();
             this.Page2 = new System.Windows.Forms.TabPage();
             this.DataGridViewCmd = new System.Windows.Forms.DataGridView();
-            this.Page3 = new System.Windows.Forms.TabPage();
-            this.Page4 = new System.Windows.Forms.TabPage();
-            this.菜单 = new System.Windows.Forms.MenuStrip();
-            this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.serialPortCOM = new System.IO.Ports.SerialPort(this.components);
-            this.接收窗口右键菜单 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.TxAutoSendTimer = new System.Windows.Forms.Timer(this.components);
-            this.打开文件 = new System.Windows.Forms.OpenFileDialog();
-            this.保存文件 = new System.Windows.Forms.SaveFileDialog();
             this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cmd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Hex = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.WordWarp = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Send = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Page3 = new System.Windows.Forms.TabPage();
+            this.Page4 = new System.Windows.Forms.TabPage();
+            this.serialPortCOM = new System.IO.Ports.SerialPort(this.components);
+            this.接收窗口右键菜单 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.TxAutoSendTimer = new System.Windows.Forms.Timer(this.components);
+            this.打开文件 = new System.Windows.Forms.OpenFileDialog();
+            this.保存文件 = new System.Windows.Forms.SaveFileDialog();
+            this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.菜单 = new System.Windows.Forms.MenuStrip();
             this.tabControlCOM.SuspendLayout();
             this.Page1.SuspendLayout();
             this.状态栏.SuspendLayout();
@@ -751,7 +752,63 @@ namespace CSharp_串口助手
             this.DataGridViewCmd.TabIndex = 0;
             this.DataGridViewCmd.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewCmd_CellContentClick);
             this.DataGridViewCmd.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridViewCmd_CellFormatting);
+            this.DataGridViewCmd.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewCmd_CellValueChanged);
             this.DataGridViewCmd.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.DataGridViewCmd_UserAddedRow);
+            // 
+            // Index
+            // 
+            this.Index.DataPropertyName = "DataTableIndex";
+            this.Index.FillWeight = 10F;
+            this.Index.HeaderText = "序号";
+            this.Index.Name = "Index";
+            this.Index.ReadOnly = true;
+            // 
+            // Cmd
+            // 
+            this.Cmd.DataPropertyName = "DataTableCmd";
+            this.Cmd.FillWeight = 30F;
+            this.Cmd.HeaderText = "指令";
+            this.Cmd.Name = "Cmd";
+            // 
+            // Note
+            // 
+            this.Note.DataPropertyName = "DataTableNote";
+            this.Note.FillWeight = 30F;
+            this.Note.HeaderText = "注释";
+            this.Note.Name = "Note";
+            // 
+            // Hex
+            // 
+            this.Hex.DataPropertyName = "DataTableHex";
+            this.Hex.FillWeight = 10F;
+            this.Hex.HeaderText = "Hex";
+            this.Hex.IndeterminateValue = "False";
+            this.Hex.Name = "Hex";
+            this.Hex.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Hex.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // WordWarp
+            // 
+            this.WordWarp.DataPropertyName = "DataTableWordWarp";
+            this.WordWarp.FillWeight = 10F;
+            this.WordWarp.HeaderText = "换行";
+            this.WordWarp.IndeterminateValue = "False";
+            this.WordWarp.Name = "WordWarp";
+            this.WordWarp.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.WordWarp.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Send
+            // 
+            this.Send.DataPropertyName = "DataTableSend";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Control;
+            this.Send.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Send.FillWeight = 10F;
+            this.Send.HeaderText = "发送";
+            this.Send.Name = "Send";
+            this.Send.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Send.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // Page3
             // 
@@ -770,37 +827,6 @@ namespace CSharp_串口助手
             this.Page4.TabIndex = 3;
             this.Page4.Text = "modus";
             this.Page4.UseVisualStyleBackColor = true;
-            // 
-            // 菜单
-            // 
-            this.菜单.Font = new System.Drawing.Font("楷体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.菜单.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.文件ToolStripMenuItem,
-            this.设置ToolStripMenuItem,
-            this.帮助ToolStripMenuItem});
-            this.菜单.Location = new System.Drawing.Point(0, 0);
-            this.菜单.Name = "菜单";
-            this.菜单.Size = new System.Drawing.Size(553, 24);
-            this.菜单.TabIndex = 1;
-            this.菜单.Text = "menuStrip1";
-            // 
-            // 文件ToolStripMenuItem
-            // 
-            this.文件ToolStripMenuItem.Name = "文件ToolStripMenuItem";
-            this.文件ToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
-            this.文件ToolStripMenuItem.Text = "文件";
-            // 
-            // 设置ToolStripMenuItem
-            // 
-            this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
-            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
-            this.设置ToolStripMenuItem.Text = "设置";
-            // 
-            // 帮助ToolStripMenuItem
-            // 
-            this.帮助ToolStripMenuItem.Name = "帮助ToolStripMenuItem";
-            this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
-            this.帮助ToolStripMenuItem.Text = "帮助";
             // 
             // serialPortCOM
             // 
@@ -831,54 +857,36 @@ namespace CSharp_串口助手
             this.保存文件.Filter = "所有文件|*.*";
             this.保存文件.Title = "保存文件";
             // 
-            // Index
+            // 文件ToolStripMenuItem
             // 
-            this.Index.DataPropertyName = "DataTableIndex";
-            this.Index.FillWeight = 10F;
-            this.Index.HeaderText = "序号";
-            this.Index.Name = "Index";
-            this.Index.ReadOnly = true;
+            this.文件ToolStripMenuItem.Name = "文件ToolStripMenuItem";
+            this.文件ToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.文件ToolStripMenuItem.Text = "文件";
             // 
-            // Cmd
+            // 设置ToolStripMenuItem
             // 
-            this.Cmd.DataPropertyName = "DataTableCmd";
-            this.Cmd.FillWeight = 30F;
-            this.Cmd.HeaderText = "指令";
-            this.Cmd.Name = "Cmd";
+            this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
+            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.设置ToolStripMenuItem.Text = "设置";
             // 
-            // Note
+            // 帮助ToolStripMenuItem
             // 
-            this.Note.DataPropertyName = "DataTableNote";
-            this.Note.FillWeight = 30F;
-            this.Note.HeaderText = "注释";
-            this.Note.Name = "Note";
+            this.帮助ToolStripMenuItem.Name = "帮助ToolStripMenuItem";
+            this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.帮助ToolStripMenuItem.Text = "帮助";
             // 
-            // Hex
+            // 菜单
             // 
-            this.Hex.DataPropertyName = "DataTableHex";
-            this.Hex.FillWeight = 10F;
-            this.Hex.HeaderText = "Hex";
-            this.Hex.Name = "Hex";
-            this.Hex.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Hex.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // WordWarp
-            // 
-            this.WordWarp.DataPropertyName = "DataTableWordWarp";
-            this.WordWarp.FillWeight = 10F;
-            this.WordWarp.HeaderText = "换行";
-            this.WordWarp.Name = "WordWarp";
-            this.WordWarp.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.WordWarp.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Send
-            // 
-            this.Send.DataPropertyName = "DataTableSend";
-            this.Send.FillWeight = 10F;
-            this.Send.HeaderText = "发送";
-            this.Send.Name = "Send";
-            this.Send.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Send.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.菜单.Font = new System.Drawing.Font("楷体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.菜单.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.文件ToolStripMenuItem,
+            this.设置ToolStripMenuItem,
+            this.帮助ToolStripMenuItem});
+            this.菜单.Location = new System.Drawing.Point(0, 0);
+            this.菜单.Name = "菜单";
+            this.菜单.Size = new System.Drawing.Size(553, 24);
+            this.菜单.TabIndex = 1;
+            this.菜单.Text = "menuStrip1";
             // 
             // 串口助手
             // 
@@ -887,6 +895,7 @@ namespace CSharp_串口助手
             this.ClientSize = new System.Drawing.Size(553, 607);
             this.Controls.Add(this.tabControlCOM);
             this.Controls.Add(this.菜单);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("楷体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.菜单;
@@ -921,9 +930,6 @@ namespace CSharp_串口助手
         private System.Windows.Forms.TabControl tabControlCOM;
         private System.Windows.Forms.TabPage Page1;
         private System.Windows.Forms.TabPage Page2;
-        private System.Windows.Forms.MenuStrip 菜单;
-        private System.Windows.Forms.ToolStripMenuItem 文件ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 设置ToolStripMenuItem;
         private System.Windows.Forms.TextBox txbRx;
         private System.Windows.Forms.TextBox txbTx;
         private System.Windows.Forms.GroupBox groupBoxTxInfo;
@@ -950,7 +956,6 @@ namespace CSharp_串口助手
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbSerialName;
         private System.Windows.Forms.Button btnOpen;
-        private System.Windows.Forms.ToolStripMenuItem 帮助ToolStripMenuItem;
         private System.Windows.Forms.TabPage Page3;
         private System.Windows.Forms.TabPage Page4;
         private System.Windows.Forms.StatusStrip 状态栏;
@@ -989,6 +994,10 @@ namespace CSharp_串口助手
         private System.Windows.Forms.DataGridViewCheckBoxColumn Hex;
         private System.Windows.Forms.DataGridViewCheckBoxColumn WordWarp;
         private System.Windows.Forms.DataGridViewButtonColumn Send;
+        private System.Windows.Forms.ToolStripMenuItem 文件ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 设置ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 帮助ToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip 菜单;
     }
 }
 

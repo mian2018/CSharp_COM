@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MyDataGridViewDoubleBuffer.cs" />
     <Compile Include="MySerializeToXml.cs" />
     <Compile Include="MyConver.cs" />
     <Compile Include="Settings.cs" />

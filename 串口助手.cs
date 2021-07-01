@@ -189,6 +189,7 @@ namespace CSharp_串口助手
             try
             {
                 serialPortCOM.Write(bytes, 0, bytes.Length);
+                TxCounter += bytes.Length;
             }
             catch (Exception e)
             {
@@ -306,6 +307,7 @@ namespace CSharp_串口助手
                 toolStatusCOM.Text = "关闭出错";
             }
         }
+        DataGridView dgv = new DataGridView();
         public 串口助手()
         {
             InitializeComponent();
@@ -328,7 +330,18 @@ namespace CSharp_串口助手
             tabControlCOM.SelectedTab.Controls.Add(groupBoxCOMInfo);
             tabControlCOM.SelectedTab.Controls.Add(groupBoxRxInfo);
             tabControlCOM.SelectedTab.Controls.Add(groupBoxTxInfo);
+            tabControlCOM.SelectedTab.Controls.Add(txbRx);
             tabControlCOM.SelectedTab.Controls.Add(状态栏);
+
+            if(tabControlCOM.SelectedIndex == 1)
+            {
+                groupBoxTxInfo.Enabled = false;
+                ckbAutoTx.Checked = false;
+            }
+            else if (tabControlCOM.SelectedIndex == 0)
+            {
+                groupBoxTxInfo.Enabled = true;
+            }
         }
 
         private void toolStatusRxCounter_DoubleClick(object sender, EventArgs e)
@@ -402,19 +415,17 @@ namespace CSharp_串口助手
         {
             if (serialPortCOM.IsOpen)
             {
+                byte[] byteBuf;
                 if (ckbTxHex.Checked)
                 {
                     //十六进制发送 
-                    Byte[] byteBuf = MyConver.HexToByte(txbTx.Text);
-                    Write(byteBuf);
-                    TxCounter += byteBuf.Length / 2;
+                    byteBuf = MyConver.HexToByte(txbTx.Text);
                 }
                 else
                 {
-                    byte[] byteArray =  TxEncoding.GetBytes(txbTx.Text);
-                    Write(byteArray);
-                    TxCounter += byteArray.Length;
+                    byteBuf =  TxEncoding.GetBytes(txbTx.Text);
                 }
+                Write(byteBuf);
             }
         }
 
@@ -494,10 +505,6 @@ namespace CSharp_串口助手
         /// <param name="e"></param>
         private void ckbAutoTx_CheckedChanged(object sender, EventArgs e)
         {
-            if(!serialPortCOM.IsOpen)
-            {
-                ckbAutoTx.Checked = false;
-            }
             TxAutoSendTimer.Enabled = ckbAutoTx.Checked;
         }
 
@@ -738,6 +745,5 @@ namespace CSharp_串口助手
             return null;
         }
 
-        
     }
 }
