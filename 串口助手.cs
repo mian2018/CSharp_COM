@@ -355,6 +355,18 @@ namespace CSharp_串口助手
         }
 
         /// <summary>
+        /// 延时 不会像Thread.Sleep()一样造成界面假死
+        /// </summary>
+        /// <param name="ms"></param>
+        static void Delay(uint ms)
+        {
+            int start = Environment.TickCount;
+            while (Environment.TickCount - start < ms)
+            {
+                System.Windows.Forms.Application.DoEvents();
+            }
+        }
+        /// <summary>
         /// 串口接收回调函数
         /// </summary>
         /// <param name="sender"></param>
@@ -362,7 +374,8 @@ namespace CSharp_串口助手
         private void serialPortCOM_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
             //50ms处理一次串口接收
-            Thread.Sleep(50);
+            //防止BeginInvoke创造的线程过多，导致界面卡死
+            Delay(50);
 
             if(!serialPortCOM.IsOpen)
             {
