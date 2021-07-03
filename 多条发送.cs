@@ -35,7 +35,6 @@ namespace CSharp_串口助手
                     dataTable.Columns.Add("DataTable" + DataGridViewCmd.Columns[i].Name);
                 }
                 dataTable.Rows.Add("0");
-                
             }
             
             DataGridViewCmd.DataSource = dataTable;

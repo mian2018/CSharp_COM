@@ -66,6 +66,9 @@
     <Compile Include="多条发送.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="波形显示.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <EmbeddedResource Include="串口助手.resx">
       <DependentUpon>串口助手.cs</DependentUpon>
       <SubType>Designer</SubType>

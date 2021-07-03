@@ -319,6 +319,7 @@ namespace CSharp_串口助手
             SaveFilePath("");
             LoadParam();
             DataTableInit();
+            ChartWaveInit();
         }
         private void 串口助手_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -757,6 +758,7 @@ namespace CSharp_串口助手
             }
             return null;
         }
+
 
     }
 }

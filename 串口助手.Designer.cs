@@ -31,6 +31,25 @@ namespace CSharp_串口助手
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint2 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint3 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint4 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint5 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint6 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint7 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint8 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint9 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(串口助手));
             this.tabControlCOM = new System.Windows.Forms.TabControl();
             this.Page1 = new System.Windows.Forms.TabPage();
@@ -93,6 +112,34 @@ namespace CSharp_串口助手
             this.WordWarp = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Send = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Page3 = new System.Windows.Forms.TabPage();
+            this.labY = new System.Windows.Forms.Label();
+            this.labX = new System.Windows.Forms.Label();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnWaveClear = new System.Windows.Forms.Button();
+            this.ckbUpdata = new System.Windows.Forms.CheckBox();
+            this.txbXSize = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btnWaveDisplay = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cmbWaveType = new System.Windows.Forms.ComboBox();
+            this.labWaveColor8 = new System.Windows.Forms.Label();
+            this.ckbWave8 = new System.Windows.Forms.CheckBox();
+            this.labWaveColor7 = new System.Windows.Forms.Label();
+            this.ckbWave7 = new System.Windows.Forms.CheckBox();
+            this.labWaveColor6 = new System.Windows.Forms.Label();
+            this.ckbWave6 = new System.Windows.Forms.CheckBox();
+            this.labWaveColor5 = new System.Windows.Forms.Label();
+            this.ckbWave5 = new System.Windows.Forms.CheckBox();
+            this.labWaveColor4 = new System.Windows.Forms.Label();
+            this.ckbWave4 = new System.Windows.Forms.CheckBox();
+            this.labWaveColor3 = new System.Windows.Forms.Label();
+            this.ckbWave3 = new System.Windows.Forms.CheckBox();
+            this.labWaveColor2 = new System.Windows.Forms.Label();
+            this.ckbWave2 = new System.Windows.Forms.CheckBox();
+            this.labWaveColor1 = new System.Windows.Forms.Label();
+            this.ckbWave1 = new System.Windows.Forms.CheckBox();
+            this.chartWave = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Page4 = new System.Windows.Forms.TabPage();
             this.serialPortCOM = new System.IO.Ports.SerialPort(this.components);
             this.接收窗口右键菜单 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -103,6 +150,7 @@ namespace CSharp_串口助手
             this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.菜单 = new System.Windows.Forms.MenuStrip();
+            this.colorDialogWave = new System.Windows.Forms.ColorDialog();
             this.tabControlCOM.SuspendLayout();
             this.Page1.SuspendLayout();
             this.状态栏.SuspendLayout();
@@ -112,6 +160,10 @@ namespace CSharp_串口助手
             this.groupBoxRxInfo.SuspendLayout();
             this.Page2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewCmd)).BeginInit();
+            this.Page3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartWave)).BeginInit();
             this.菜单.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -812,12 +864,500 @@ namespace CSharp_串口助手
             // 
             // Page3
             // 
+            this.Page3.Controls.Add(this.labY);
+            this.Page3.Controls.Add(this.labX);
+            this.Page3.Controls.Add(this.trackBar1);
+            this.Page3.Controls.Add(this.panel1);
+            this.Page3.Controls.Add(this.chartWave);
             this.Page3.Location = new System.Drawing.Point(4, 22);
             this.Page3.Name = "Page3";
             this.Page3.Size = new System.Drawing.Size(545, 547);
             this.Page3.TabIndex = 2;
             this.Page3.Text = "波形显示";
             this.Page3.UseVisualStyleBackColor = true;
+            // 
+            // labY
+            // 
+            this.labY.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labY.ForeColor = System.Drawing.Color.Firebrick;
+            this.labY.Location = new System.Drawing.Point(442, 0);
+            this.labY.Name = "labY";
+            this.labY.Size = new System.Drawing.Size(100, 23);
+            this.labY.TabIndex = 4;
+            this.labY.Text = "0";
+            this.labY.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // labX
+            // 
+            this.labX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labX.ForeColor = System.Drawing.Color.Firebrick;
+            this.labX.Location = new System.Drawing.Point(336, 0);
+            this.labX.Name = "labX";
+            this.labX.Size = new System.Drawing.Size(100, 23);
+            this.labX.TabIndex = 3;
+            this.labX.Text = "0,";
+            this.labX.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.trackBar1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.trackBar1.Location = new System.Drawing.Point(236, 361);
+            this.trackBar1.Maximum = 0;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(301, 45);
+            this.trackBar1.TabIndex = 2;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.btnWaveClear);
+            this.panel1.Controls.Add(this.ckbUpdata);
+            this.panel1.Controls.Add(this.txbXSize);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.btnWaveDisplay);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.cmbWaveType);
+            this.panel1.Controls.Add(this.labWaveColor8);
+            this.panel1.Controls.Add(this.ckbWave8);
+            this.panel1.Controls.Add(this.labWaveColor7);
+            this.panel1.Controls.Add(this.ckbWave7);
+            this.panel1.Controls.Add(this.labWaveColor6);
+            this.panel1.Controls.Add(this.ckbWave6);
+            this.panel1.Controls.Add(this.labWaveColor5);
+            this.panel1.Controls.Add(this.ckbWave5);
+            this.panel1.Controls.Add(this.labWaveColor4);
+            this.panel1.Controls.Add(this.ckbWave4);
+            this.panel1.Controls.Add(this.labWaveColor3);
+            this.panel1.Controls.Add(this.ckbWave3);
+            this.panel1.Controls.Add(this.labWaveColor2);
+            this.panel1.Controls.Add(this.ckbWave2);
+            this.panel1.Controls.Add(this.labWaveColor1);
+            this.panel1.Controls.Add(this.ckbWave1);
+            this.panel1.Location = new System.Drawing.Point(200, 405);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(345, 121);
+            this.panel1.TabIndex = 1;
+            // 
+            // btnWaveClear
+            // 
+            this.btnWaveClear.Location = new System.Drawing.Point(138, 95);
+            this.btnWaveClear.Name = "btnWaveClear";
+            this.btnWaveClear.Size = new System.Drawing.Size(87, 23);
+            this.btnWaveClear.TabIndex = 32;
+            this.btnWaveClear.Text = "清除波形";
+            this.btnWaveClear.UseVisualStyleBackColor = true;
+            this.btnWaveClear.Click += new System.EventHandler(this.btnWaveClear_Click);
+            // 
+            // ckbUpdata
+            // 
+            this.ckbUpdata.AutoSize = true;
+            this.ckbUpdata.Checked = true;
+            this.ckbUpdata.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckbUpdata.Location = new System.Drawing.Point(3, 99);
+            this.ckbUpdata.Name = "ckbUpdata";
+            this.ckbUpdata.Size = new System.Drawing.Size(96, 16);
+            this.ckbUpdata.TabIndex = 31;
+            this.ckbUpdata.Text = "显示最新数据";
+            this.ckbUpdata.UseVisualStyleBackColor = true;
+            // 
+            // txbXSize
+            // 
+            this.txbXSize.Location = new System.Drawing.Point(234, 61);
+            this.txbXSize.Name = "txbXSize";
+            this.txbXSize.Size = new System.Drawing.Size(87, 21);
+            this.txbXSize.TabIndex = 30;
+            this.txbXSize.Text = "100";
+            this.txbXSize.TextChanged += new System.EventHandler(this.txbXSize_TextChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(169, 65);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(59, 12);
+            this.label9.TabIndex = 29;
+            this.label9.Text = "X轴点数：";
+            // 
+            // btnWaveDisplay
+            // 
+            this.btnWaveDisplay.Location = new System.Drawing.Point(234, 95);
+            this.btnWaveDisplay.Name = "btnWaveDisplay";
+            this.btnWaveDisplay.Size = new System.Drawing.Size(87, 23);
+            this.btnWaveDisplay.TabIndex = 28;
+            this.btnWaveDisplay.Text = "开始显示";
+            this.btnWaveDisplay.UseVisualStyleBackColor = true;
+            this.btnWaveDisplay.Click += new System.EventHandler(this.btnWaveDisplay_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(1, 65);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(65, 12);
+            this.label8.TabIndex = 27;
+            this.label8.Text = "曲线类型：";
+            // 
+            // cmbWaveType
+            // 
+            this.cmbWaveType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbWaveType.FormattingEnabled = true;
+            this.cmbWaveType.Items.AddRange(new object[] {
+            "点",
+            "折线",
+            "曲线",
+            "柱状图"});
+            this.cmbWaveType.Location = new System.Drawing.Point(69, 62);
+            this.cmbWaveType.Name = "cmbWaveType";
+            this.cmbWaveType.Size = new System.Drawing.Size(87, 20);
+            this.cmbWaveType.TabIndex = 26;
+            this.cmbWaveType.SelectedIndexChanged += new System.EventHandler(this.cmbWaveType_SelectedIndexChanged);
+            // 
+            // labWaveColor8
+            // 
+            this.labWaveColor8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.labWaveColor8.AutoSize = true;
+            this.labWaveColor8.Location = new System.Drawing.Point(304, 26);
+            this.labWaveColor8.Name = "labWaveColor8";
+            this.labWaveColor8.Size = new System.Drawing.Size(29, 12);
+            this.labWaveColor8.TabIndex = 25;
+            this.labWaveColor8.Text = "----";
+            this.labWaveColor8.Click += new System.EventHandler(this.labWaveColor_Click);
+            // 
+            // ckbWave8
+            // 
+            this.ckbWave8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.ckbWave8.AutoSize = true;
+            this.ckbWave8.Checked = true;
+            this.ckbWave8.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckbWave8.Location = new System.Drawing.Point(255, 25);
+            this.ckbWave8.Name = "ckbWave8";
+            this.ckbWave8.Size = new System.Drawing.Size(54, 16);
+            this.ckbWave8.TabIndex = 24;
+            this.ckbWave8.Text = "曲线8";
+            this.ckbWave8.UseVisualStyleBackColor = true;
+            this.ckbWave8.CheckedChanged += new System.EventHandler(this.ckbWave_CheckedChanged);
+            // 
+            // labWaveColor7
+            // 
+            this.labWaveColor7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.labWaveColor7.AutoSize = true;
+            this.labWaveColor7.Location = new System.Drawing.Point(220, 26);
+            this.labWaveColor7.Name = "labWaveColor7";
+            this.labWaveColor7.Size = new System.Drawing.Size(29, 12);
+            this.labWaveColor7.TabIndex = 22;
+            this.labWaveColor7.Text = "----";
+            this.labWaveColor7.Click += new System.EventHandler(this.labWaveColor_Click);
+            // 
+            // ckbWave7
+            // 
+            this.ckbWave7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.ckbWave7.AutoSize = true;
+            this.ckbWave7.Checked = true;
+            this.ckbWave7.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckbWave7.Location = new System.Drawing.Point(171, 25);
+            this.ckbWave7.Name = "ckbWave7";
+            this.ckbWave7.Size = new System.Drawing.Size(54, 16);
+            this.ckbWave7.TabIndex = 21;
+            this.ckbWave7.Text = "曲线7";
+            this.ckbWave7.UseVisualStyleBackColor = true;
+            this.ckbWave7.CheckedChanged += new System.EventHandler(this.ckbWave_CheckedChanged);
+            // 
+            // labWaveColor6
+            // 
+            this.labWaveColor6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.labWaveColor6.AutoSize = true;
+            this.labWaveColor6.Location = new System.Drawing.Point(136, 26);
+            this.labWaveColor6.Name = "labWaveColor6";
+            this.labWaveColor6.Size = new System.Drawing.Size(29, 12);
+            this.labWaveColor6.TabIndex = 19;
+            this.labWaveColor6.Text = "----";
+            this.labWaveColor6.Click += new System.EventHandler(this.labWaveColor_Click);
+            // 
+            // ckbWave6
+            // 
+            this.ckbWave6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.ckbWave6.AutoSize = true;
+            this.ckbWave6.Checked = true;
+            this.ckbWave6.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckbWave6.Location = new System.Drawing.Point(87, 25);
+            this.ckbWave6.Name = "ckbWave6";
+            this.ckbWave6.Size = new System.Drawing.Size(54, 16);
+            this.ckbWave6.TabIndex = 18;
+            this.ckbWave6.Text = "曲线6";
+            this.ckbWave6.UseVisualStyleBackColor = true;
+            this.ckbWave6.CheckedChanged += new System.EventHandler(this.ckbWave_CheckedChanged);
+            // 
+            // labWaveColor5
+            // 
+            this.labWaveColor5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.labWaveColor5.AutoSize = true;
+            this.labWaveColor5.Location = new System.Drawing.Point(52, 26);
+            this.labWaveColor5.Name = "labWaveColor5";
+            this.labWaveColor5.Size = new System.Drawing.Size(29, 12);
+            this.labWaveColor5.TabIndex = 16;
+            this.labWaveColor5.Text = "----";
+            this.labWaveColor5.Click += new System.EventHandler(this.labWaveColor_Click);
+            // 
+            // ckbWave5
+            // 
+            this.ckbWave5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.ckbWave5.AutoSize = true;
+            this.ckbWave5.Checked = true;
+            this.ckbWave5.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckbWave5.Location = new System.Drawing.Point(3, 25);
+            this.ckbWave5.Name = "ckbWave5";
+            this.ckbWave5.Size = new System.Drawing.Size(54, 16);
+            this.ckbWave5.TabIndex = 15;
+            this.ckbWave5.Text = "曲线5";
+            this.ckbWave5.UseVisualStyleBackColor = true;
+            this.ckbWave5.CheckedChanged += new System.EventHandler(this.ckbWave_CheckedChanged);
+            // 
+            // labWaveColor4
+            // 
+            this.labWaveColor4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.labWaveColor4.AutoSize = true;
+            this.labWaveColor4.Location = new System.Drawing.Point(304, 4);
+            this.labWaveColor4.Name = "labWaveColor4";
+            this.labWaveColor4.Size = new System.Drawing.Size(29, 12);
+            this.labWaveColor4.TabIndex = 13;
+            this.labWaveColor4.Text = "----";
+            this.labWaveColor4.Click += new System.EventHandler(this.labWaveColor_Click);
+            // 
+            // ckbWave4
+            // 
+            this.ckbWave4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.ckbWave4.AutoSize = true;
+            this.ckbWave4.Checked = true;
+            this.ckbWave4.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckbWave4.Location = new System.Drawing.Point(255, 3);
+            this.ckbWave4.Name = "ckbWave4";
+            this.ckbWave4.Size = new System.Drawing.Size(54, 16);
+            this.ckbWave4.TabIndex = 12;
+            this.ckbWave4.Text = "曲线4";
+            this.ckbWave4.UseVisualStyleBackColor = true;
+            this.ckbWave4.CheckedChanged += new System.EventHandler(this.ckbWave_CheckedChanged);
+            // 
+            // labWaveColor3
+            // 
+            this.labWaveColor3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.labWaveColor3.AutoSize = true;
+            this.labWaveColor3.Location = new System.Drawing.Point(220, 4);
+            this.labWaveColor3.Name = "labWaveColor3";
+            this.labWaveColor3.Size = new System.Drawing.Size(29, 12);
+            this.labWaveColor3.TabIndex = 10;
+            this.labWaveColor3.Text = "----";
+            this.labWaveColor3.Click += new System.EventHandler(this.labWaveColor_Click);
+            // 
+            // ckbWave3
+            // 
+            this.ckbWave3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.ckbWave3.AutoSize = true;
+            this.ckbWave3.Checked = true;
+            this.ckbWave3.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckbWave3.Location = new System.Drawing.Point(171, 3);
+            this.ckbWave3.Name = "ckbWave3";
+            this.ckbWave3.Size = new System.Drawing.Size(54, 16);
+            this.ckbWave3.TabIndex = 9;
+            this.ckbWave3.Text = "曲线3";
+            this.ckbWave3.UseVisualStyleBackColor = true;
+            this.ckbWave3.CheckedChanged += new System.EventHandler(this.ckbWave_CheckedChanged);
+            // 
+            // labWaveColor2
+            // 
+            this.labWaveColor2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.labWaveColor2.AutoSize = true;
+            this.labWaveColor2.Location = new System.Drawing.Point(136, 4);
+            this.labWaveColor2.Name = "labWaveColor2";
+            this.labWaveColor2.Size = new System.Drawing.Size(29, 12);
+            this.labWaveColor2.TabIndex = 7;
+            this.labWaveColor2.Text = "----";
+            this.labWaveColor2.Click += new System.EventHandler(this.labWaveColor_Click);
+            // 
+            // ckbWave2
+            // 
+            this.ckbWave2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.ckbWave2.AutoSize = true;
+            this.ckbWave2.Checked = true;
+            this.ckbWave2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckbWave2.Location = new System.Drawing.Point(87, 3);
+            this.ckbWave2.Name = "ckbWave2";
+            this.ckbWave2.Size = new System.Drawing.Size(54, 16);
+            this.ckbWave2.TabIndex = 6;
+            this.ckbWave2.Text = "曲线2";
+            this.ckbWave2.UseVisualStyleBackColor = true;
+            this.ckbWave2.CheckedChanged += new System.EventHandler(this.ckbWave_CheckedChanged);
+            // 
+            // labWaveColor1
+            // 
+            this.labWaveColor1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.labWaveColor1.AutoSize = true;
+            this.labWaveColor1.Location = new System.Drawing.Point(52, 4);
+            this.labWaveColor1.Name = "labWaveColor1";
+            this.labWaveColor1.Size = new System.Drawing.Size(29, 12);
+            this.labWaveColor1.TabIndex = 4;
+            this.labWaveColor1.Text = "----";
+            this.labWaveColor1.Click += new System.EventHandler(this.labWaveColor_Click);
+            // 
+            // ckbWave1
+            // 
+            this.ckbWave1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.ckbWave1.AutoSize = true;
+            this.ckbWave1.Checked = true;
+            this.ckbWave1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckbWave1.Location = new System.Drawing.Point(3, 3);
+            this.ckbWave1.Name = "ckbWave1";
+            this.ckbWave1.Size = new System.Drawing.Size(54, 16);
+            this.ckbWave1.TabIndex = 0;
+            this.ckbWave1.Text = "曲线1";
+            this.ckbWave1.UseVisualStyleBackColor = true;
+            this.ckbWave1.CheckedChanged += new System.EventHandler(this.ckbWave_CheckedChanged);
+            // 
+            // chartWave
+            // 
+            this.chartWave.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea1.AxisX.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Triangle;
+            chartArea1.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea1.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea1.AxisX.MaximumAutoSize = 80F;
+            chartArea1.AxisX.MinorGrid.Enabled = true;
+            chartArea1.AxisX.MinorGrid.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea1.AxisX.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea1.AxisX.MinorTickMark.Enabled = true;
+            chartArea1.AxisX.MinorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
+            chartArea1.AxisX.ScaleView.Size = 100D;
+            chartArea1.AxisY.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Triangle;
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea1.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea1.AxisY.MinorGrid.Enabled = true;
+            chartArea1.AxisY.MinorGrid.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea1.AxisY.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea1.AxisY.MinorTickMark.Enabled = true;
+            chartArea1.AxisY.MinorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
+            chartArea1.AxisY.ScaleView.Size = 100D;
+            chartArea1.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea1.CursorX.IsUserEnabled = true;
+            chartArea1.CursorX.IsUserSelectionEnabled = true;
+            chartArea1.CursorX.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea1.CursorY.IsUserEnabled = true;
+            chartArea1.CursorY.IsUserSelectionEnabled = true;
+            chartArea1.CursorY.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea1.Name = "ChartArea1";
+            chartArea1.Position.Auto = false;
+            chartArea1.Position.Height = 90F;
+            chartArea1.Position.Width = 94F;
+            chartArea1.Position.X = 3F;
+            chartArea1.Position.Y = 3F;
+            this.chartWave.ChartAreas.Add(chartArea1);
+            this.chartWave.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.chartWave.Location = new System.Drawing.Point(200, 3);
+            this.chartWave.Name = "chartWave";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
+            series1.CustomProperties = "IsXAxisQuantitative=True";
+            series1.IsVisibleInLegend = false;
+            series1.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
+            series1.Name = "Series1";
+            series1.Points.Add(dataPoint1);
+            series1.ToolTip = "#INDEX,  #VAL";
+            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
+            series2.CustomProperties = "IsXAxisQuantitative=True";
+            series2.IsVisibleInLegend = false;
+            series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
+            series2.Name = "Series2";
+            series2.Points.Add(dataPoint2);
+            series2.ToolTip = "#INDEX,  #VAL";
+            series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series2.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
+            series3.CustomProperties = "IsXAxisQuantitative=True";
+            series3.IsVisibleInLegend = false;
+            series3.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
+            series3.Name = "Series3";
+            series3.Points.Add(dataPoint3);
+            series3.ToolTip = "#INDEX,  #VAL";
+            series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series3.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
+            series4.CustomProperties = "IsXAxisQuantitative=True";
+            series4.IsVisibleInLegend = false;
+            series4.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
+            series4.Name = "Series4";
+            series4.Points.Add(dataPoint4);
+            series4.ToolTip = "#INDEX,  #VAL";
+            series4.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series4.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
+            series5.CustomProperties = "IsXAxisQuantitative=True";
+            series5.IsVisibleInLegend = false;
+            series5.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
+            series5.Name = "Series5";
+            series5.Points.Add(dataPoint5);
+            series5.ToolTip = "#INDEX,  #VAL";
+            series5.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series5.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
+            series6.CustomProperties = "IsXAxisQuantitative=True";
+            series6.IsVisibleInLegend = false;
+            series6.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
+            series6.Name = "Series6";
+            series6.Points.Add(dataPoint6);
+            series6.ToolTip = "#INDEX,  #VAL";
+            series6.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series6.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
+            series7.CustomProperties = "IsXAxisQuantitative=True";
+            series7.IsVisibleInLegend = false;
+            series7.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
+            series7.Name = "Series7";
+            series7.Points.Add(dataPoint7);
+            series7.ToolTip = "#INDEX,  #VAL";
+            series7.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series7.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
+            series8.CustomProperties = "IsXAxisQuantitative=True";
+            series8.IsVisibleInLegend = false;
+            series8.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
+            series8.Name = "Series8";
+            series8.Points.Add(dataPoint8);
+            series8.ToolTip = "#INDEX,  #VAL";
+            series8.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series8.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
+            series9.Color = System.Drawing.SystemColors.Control;
+            series9.CustomProperties = "IsXAxisQuantitative=True";
+            series9.IsVisibleInLegend = false;
+            series9.Name = "Series9";
+            series9.Points.Add(dataPoint9);
+            series9.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series9.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            this.chartWave.Series.Add(series1);
+            this.chartWave.Series.Add(series2);
+            this.chartWave.Series.Add(series3);
+            this.chartWave.Series.Add(series4);
+            this.chartWave.Series.Add(series5);
+            this.chartWave.Series.Add(series6);
+            this.chartWave.Series.Add(series7);
+            this.chartWave.Series.Add(series8);
+            this.chartWave.Series.Add(series9);
+            this.chartWave.Size = new System.Drawing.Size(345, 396);
+            this.chartWave.TabIndex = 0;
+            this.chartWave.CursorPositionChanged += new System.EventHandler<System.Windows.Forms.DataVisualization.Charting.CursorEventArgs>(this.chartWave_CursorPositionChanged);
             // 
             // Page4
             // 
@@ -888,6 +1428,11 @@ namespace CSharp_串口助手
             this.菜单.TabIndex = 1;
             this.菜单.Text = "menuStrip1";
             // 
+            // colorDialogWave
+            // 
+            this.colorDialogWave.AnyColor = true;
+            this.colorDialogWave.FullOpen = true;
+            // 
             // 串口助手
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -918,6 +1463,12 @@ namespace CSharp_串口助手
             this.groupBoxRxInfo.PerformLayout();
             this.Page2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewCmd)).EndInit();
+            this.Page3.ResumeLayout(false);
+            this.Page3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartWave)).EndInit();
             this.菜单.ResumeLayout(false);
             this.菜单.PerformLayout();
             this.ResumeLayout(false);
@@ -998,6 +1549,35 @@ namespace CSharp_串口助手
         private System.Windows.Forms.ToolStripMenuItem 设置ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 帮助ToolStripMenuItem;
         private System.Windows.Forms.MenuStrip 菜单;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartWave;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.CheckBox ckbWave1;
+        private System.Windows.Forms.Label labWaveColor1;
+        private System.Windows.Forms.Label labWaveColor8;
+        private System.Windows.Forms.CheckBox ckbWave8;
+        private System.Windows.Forms.Label labWaveColor7;
+        private System.Windows.Forms.CheckBox ckbWave7;
+        private System.Windows.Forms.Label labWaveColor6;
+        private System.Windows.Forms.CheckBox ckbWave6;
+        private System.Windows.Forms.Label labWaveColor5;
+        private System.Windows.Forms.CheckBox ckbWave5;
+        private System.Windows.Forms.Label labWaveColor4;
+        private System.Windows.Forms.CheckBox ckbWave4;
+        private System.Windows.Forms.Label labWaveColor3;
+        private System.Windows.Forms.CheckBox ckbWave3;
+        private System.Windows.Forms.Label labWaveColor2;
+        private System.Windows.Forms.CheckBox ckbWave2;
+        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cmbWaveType;
+        private System.Windows.Forms.Button btnWaveClear;
+        private System.Windows.Forms.CheckBox ckbUpdata;
+        private System.Windows.Forms.TextBox txbXSize;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnWaveDisplay;
+        private System.Windows.Forms.Label labY;
+        private System.Windows.Forms.Label labX;
+        private System.Windows.Forms.ColorDialog colorDialogWave;
     }
 }
 
