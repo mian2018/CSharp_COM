@@ -222,7 +222,7 @@ namespace CSharp_串口助手
             {
                 int temp = int.Parse(txbXSize.Text);
 
-                if (temp < 10000 && temp > 0)
+                if (temp < MaxSeriesLen && temp > 0)
                 {
                     chartWave.ChartAreas[0].AxisX.ScaleView.Size = temp;
                 }
