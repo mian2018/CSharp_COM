@@ -298,5 +298,233 @@ namespace CSharp_串口助手.Properties {
                 this["txbTxAutoTime"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ckbWave1 {
+            get {
+                return ((bool)(this["ckbWave1"]));
+            }
+            set {
+                this["ckbWave1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ckbWave2 {
+            get {
+                return ((bool)(this["ckbWave2"]));
+            }
+            set {
+                this["ckbWave2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ckbWave3 {
+            get {
+                return ((bool)(this["ckbWave3"]));
+            }
+            set {
+                this["ckbWave3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ckbWave4 {
+            get {
+                return ((bool)(this["ckbWave4"]));
+            }
+            set {
+                this["ckbWave4"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ckbWave5 {
+            get {
+                return ((bool)(this["ckbWave5"]));
+            }
+            set {
+                this["ckbWave5"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ckbWave6 {
+            get {
+                return ((bool)(this["ckbWave6"]));
+            }
+            set {
+                this["ckbWave6"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ckbWave7 {
+            get {
+                return ((bool)(this["ckbWave7"]));
+            }
+            set {
+                this["ckbWave7"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ckbWave8 {
+            get {
+                return ((bool)(this["ckbWave8"]));
+            }
+            set {
+                this["ckbWave8"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Red")]
+        public global::System.Drawing.Color labWaveColor1 {
+            get {
+                return ((global::System.Drawing.Color)(this["labWaveColor1"]));
+            }
+            set {
+                this["labWaveColor1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Green")]
+        public global::System.Drawing.Color labWaveColor2 {
+            get {
+                return ((global::System.Drawing.Color)(this["labWaveColor2"]));
+            }
+            set {
+                this["labWaveColor2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Blue")]
+        public global::System.Drawing.Color labWaveColor3 {
+            get {
+                return ((global::System.Drawing.Color)(this["labWaveColor3"]));
+            }
+            set {
+                this["labWaveColor3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Yellow")]
+        public global::System.Drawing.Color labWaveColor4 {
+            get {
+                return ((global::System.Drawing.Color)(this["labWaveColor4"]));
+            }
+            set {
+                this["labWaveColor4"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Fuchsia")]
+        public global::System.Drawing.Color labWaveColor5 {
+            get {
+                return ((global::System.Drawing.Color)(this["labWaveColor5"]));
+            }
+            set {
+                this["labWaveColor5"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Cyan")]
+        public global::System.Drawing.Color labWaveColor6 {
+            get {
+                return ((global::System.Drawing.Color)(this["labWaveColor6"]));
+            }
+            set {
+                this["labWaveColor6"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("255, 128, 0")]
+        public global::System.Drawing.Color labWaveColor7 {
+            get {
+                return ((global::System.Drawing.Color)(this["labWaveColor7"]));
+            }
+            set {
+                this["labWaveColor7"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Black")]
+        public global::System.Drawing.Color labWaveColor8 {
+            get {
+                return ((global::System.Drawing.Color)(this["labWaveColor8"]));
+            }
+            set {
+                this["labWaveColor8"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ckbUpdata {
+            get {
+                return ((bool)(this["ckbUpdata"]));
+            }
+            set {
+                this["ckbUpdata"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int cmbWaveType {
+            get {
+                return ((int)(this["cmbWaveType"]));
+            }
+            set {
+                this["cmbWaveType"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public string txbXSize {
+            get {
+                return ((string)(this["txbXSize"]));
+            }
+            set {
+                this["txbXSize"] = value;
+            }
+        }
     }
 }

@@ -1,6 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -11,12 +12,30 @@ namespace CSharp_串口助手
 {
     public partial class 串口助手 : Form
     {
+        /// <summary>
+        /// chart控件数据表最大长度， 实测超过1w后巨卡
+        /// </summary>
         private const int MaxSeriesLen = 10000;
+        /// <summary>
+        /// chart控件数据源序号
+        /// </summary>
         private int WaveIndex = 0;
+        /// <summary>
+        /// 记录x轴坐标
+        /// </summary>
+        private int WaveXIndex = 0;
         object chartLock = new object();
+        /// <summary>
+        /// chart控件数据源类型
+        /// </summary>
         private DataTable dataTableType = new DataTable("Wave");
+        /// <summary>
+        /// chart控件数据源列表
+        /// </summary>
         List<DataTable> dataTables = new List<DataTable>(1000);
-        //图表刷新线程
+        /// <summary>
+        /// 图表刷新线程
+        /// </summary>
         Thread thread;
         private void ChartWaveInit()
         {
@@ -41,27 +60,83 @@ namespace CSharp_串口助手
             //绑定数据源
             chartWave.DataSource = dataTables[WaveIndex];
 
-            cmbWaveType.SelectedIndex = 0;
+            //加载数据
+            ckbWave1.Checked = Properties.Settings.Default.ckbWave1;
+            ckbWave2.Checked = Properties.Settings.Default.ckbWave2;
+            ckbWave3.Checked = Properties.Settings.Default.ckbWave3;
+            ckbWave4.Checked = Properties.Settings.Default.ckbWave4;
+            ckbWave5.Checked = Properties.Settings.Default.ckbWave5;
+            ckbWave6.Checked = Properties.Settings.Default.ckbWave6;
+            ckbWave7.Checked = Properties.Settings.Default.ckbWave7;
+            ckbWave8.Checked = Properties.Settings.Default.ckbWave8;
+            ckbUpdata.Checked = Properties.Settings.Default.ckbUpdata;
+            cmbWaveType.SelectedIndex = Properties.Settings.Default.cmbWaveType;
+            txbXSize.Text = Properties.Settings.Default.txbXSize;
+            labWaveColor1.ForeColor = Properties.Settings.Default.labWaveColor1;
+            chartWave.Series[0].Color = labWaveColor1.ForeColor;
+            labWaveColor2.ForeColor = Properties.Settings.Default.labWaveColor2;
+            chartWave.Series[1].Color = labWaveColor2.ForeColor;
+            labWaveColor3.ForeColor = Properties.Settings.Default.labWaveColor3;
+            chartWave.Series[2].Color = labWaveColor3.ForeColor;
+            labWaveColor4.ForeColor = Properties.Settings.Default.labWaveColor4;
+            chartWave.Series[3].Color = labWaveColor4.ForeColor;
+            labWaveColor5.ForeColor = Properties.Settings.Default.labWaveColor5;
+            chartWave.Series[4].Color = labWaveColor5.ForeColor;
+            labWaveColor6.ForeColor = Properties.Settings.Default.labWaveColor6;
+            chartWave.Series[5].Color = labWaveColor6.ForeColor;
+            labWaveColor7.ForeColor = Properties.Settings.Default.labWaveColor7;
+            chartWave.Series[6].Color = labWaveColor7.ForeColor;
+            labWaveColor8.ForeColor = Properties.Settings.Default.labWaveColor8;
+            chartWave.Series[7].Color = labWaveColor8.ForeColor;
         }
 
+        private void SaveSeriesParame()
+        {
+            Properties.Settings.Default.ckbWave1 = ckbWave1.Checked;
+            Properties.Settings.Default.ckbWave2 = ckbWave2.Checked;
+            Properties.Settings.Default.ckbWave3 = ckbWave3.Checked;
+            Properties.Settings.Default.ckbWave4 = ckbWave4.Checked;
+            Properties.Settings.Default.ckbWave5 = ckbWave5.Checked;
+            Properties.Settings.Default.ckbWave6 = ckbWave6.Checked;
+            Properties.Settings.Default.ckbWave7 = ckbWave7.Checked;
+            Properties.Settings.Default.ckbWave8 = ckbWave8.Checked;
+            Properties.Settings.Default.ckbUpdata = ckbUpdata.Checked;
+            Properties.Settings.Default.cmbWaveType = cmbWaveType.SelectedIndex;
+            Properties.Settings.Default.labWaveColor1 = labWaveColor1.ForeColor;
+            Properties.Settings.Default.labWaveColor2 = labWaveColor2.ForeColor;
+            Properties.Settings.Default.labWaveColor3 = labWaveColor3.ForeColor;
+            Properties.Settings.Default.labWaveColor4 = labWaveColor4.ForeColor;
+            Properties.Settings.Default.labWaveColor5 = labWaveColor5.ForeColor;
+            Properties.Settings.Default.labWaveColor6 = labWaveColor6.ForeColor;
+            Properties.Settings.Default.labWaveColor7 = labWaveColor7.ForeColor;
+            Properties.Settings.Default.labWaveColor8 = labWaveColor8.ForeColor;
+            Properties.Settings.Default.Save();
+
+        }
+
+        /// <summary>
+        /// 帧头
+        /// </summary>
         byte frameHead = 0xaa;
+        /// <summary>
+        /// 帧长
+        /// </summary>
         int frameLen = 38;
         private void Analysis()
         {
-            //取消串口接收回调事件
-            serialPortCOM.DataReceived -= serialPortCOM_DataReceived;
+            
             List<byte> listBytes = new List<byte>(1024);
             int counter = 0;
             int yValue = int.MaxValue;
             while (true)
             {
                 Thread.Sleep(50);
-                yValue = int.MaxValue;
                 counter++;
                 if (serialPortCOM.IsOpen)
                 {
                     byte[] bytes = new byte[serialPortCOM.BytesToRead];
                     serialPortCOM.Read(bytes, 0, bytes.Length);
+                    RxCounter += bytes.Length;
                     listBytes.AddRange(bytes);
 
                     while (listBytes.Contains(frameHead) && (listBytes.Count - listBytes.IndexOf(frameHead)) >= frameLen)
@@ -81,10 +156,10 @@ namespace CSharp_串口助手
 
                             lock (chartLock)
                             {
-                                dataTables[WaveIndex].Rows.Add(Wave1, Wave2, Wave3, Wave4, Wave5, Wave6, Wave7, Wave8, 0);
+                                dataTables[WaveIndex].Rows.Add(WaveXIndex++, Wave1, Wave2, Wave3, Wave4, Wave5, Wave6, Wave7, Wave8);
                                 
                                 //记录y值， 后面修改y轴位置
-                                for(int i = 0; i < 8; i++)
+                                for(int i = 1; i < 9; i++)
                                 {
                                     if(chartWave.Series[i].Enabled)
                                     {   
@@ -123,6 +198,7 @@ namespace CSharp_串口助手
 
                     if (counter > 20 && yValue < int.MaxValue)
                     {
+                        yValue = int.MaxValue;
                         counter = 0;
                         this.BeginInvoke(new Action(() => {
 
@@ -131,17 +207,17 @@ namespace CSharp_串口助手
                                 //X轴 滚动条位置 保持最新位置 - 99
                                 if (ckbUpdata.Checked)
                                 {
-                                    if (dataTables[dataTables.Count - 1].Rows.Count > chartWave.ChartAreas[0].AxisX.ScaleView.Size)
+                                    if (dataTables[WaveIndex].Rows.Count > chartWave.ChartAreas[0].AxisX.ScaleView.Size)
                                     {
-                                        chartWave.ChartAreas[0].AxisX.ScaleView.Position = dataTables[WaveIndex].Rows.Count - 1 - chartWave.ChartAreas[0].AxisX.ScaleView.Size;
+                                        chartWave.ChartAreas[0].AxisX.ScaleView.Position = WaveXIndex - chartWave.ChartAreas[0].AxisX.ScaleView.Size;
                                     }
                                     else
                                     {
                                         chartWave.ChartAreas[0].AxisX.ScaleView.Position = 0;
                                     }
 
-                                    //Y轴 滚动条位置 保持最新位置 - 50
-                                    chartWave.ChartAreas[0].AxisY.ScaleView.Position = yValue - 50;
+                                    //Y轴 滚动条位置 保持最新位置
+                                    chartWave.ChartAreas[0].AxisY.ScaleView.Position = yValue - chartWave.ChartAreas[0].AxisY.ScaleView.Size/2;
                                 }
 
                                 //X轴 数据的起始位置和结束位置 
@@ -183,25 +259,27 @@ namespace CSharp_串口助手
 
         private void labWaveColor_Click(object sender, EventArgs e)
         {
+            int Index = int.Parse(((Label)sender).Name.Substring(((Label)sender).Name.Length - 1)) - 1;
             colorDialogWave.Color = ((Label)sender).ForeColor;
             if (colorDialogWave.ShowDialog() == DialogResult.OK)
             {
                 ((Label)sender).ForeColor = colorDialogWave.Color;
+                chartWave.Series[Index].Color = colorDialogWave.Color;
             }
         }
 
         private void cmbWaveType_SelectedIndexChanged(object sender, EventArgs e)
         {
             System.Windows.Forms.DataVisualization.Charting.SeriesChartType seriesChartType = new System.Windows.Forms.DataVisualization.Charting.SeriesChartType();
-            if ((string)cmbWaveType.SelectedValue == "曲线")
+            if (cmbWaveType.SelectedIndex == 2)
             {
                 seriesChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             }
-            else if ((string)cmbWaveType.SelectedValue == "折线")
+            else if (cmbWaveType.SelectedIndex == 1)
             {
                 seriesChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             }
-            else if ((string)cmbWaveType.SelectedValue == "柱状图")
+            else if (cmbWaveType.SelectedIndex == 3)
             {
                 seriesChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
             }
@@ -246,8 +324,12 @@ namespace CSharp_串口助手
                     dataTables[i].Clear();
                 }
                 WaveIndex = 0;
+                WaveXIndex = 0;
                 //绑定数据源
                 chartWave.DataSource = dataTables[0];
+
+                //刷新图表
+                chartWave.DataBind();
             }
         }
 
@@ -257,9 +339,18 @@ namespace CSharp_串口助手
             {
                 thread.Abort();
                 btnWaveDisplay.Text = "开始显示";
+                btnWaveSave.Enabled = true;
+                btnWaveLoad.Enabled = true;
+                //恢复串口接收回调事件
+                serialPortCOM.DataReceived += serialPortCOM_DataReceived;
             }
             else
             {
+                //取消串口接收回调事件
+                serialPortCOM.DataReceived -= serialPortCOM_DataReceived;
+
+                btnWaveSave.Enabled = false;
+                btnWaveLoad.Enabled = false;
                 //图表刷新线程
                 thread = new Thread(Analysis);
                 thread.IsBackground = true;
@@ -267,6 +358,129 @@ namespace CSharp_串口助手
                 btnWaveDisplay.Text = "暂停显示";
             }
 
+        }
+        private void btnWaveLoad_Click(object sender, EventArgs e)
+        {
+            btnWaveClear.PerformClick();
+
+            if(openWaveFile.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    string[] lines = File.ReadAllLines(openWaveFile.FileName);
+                    int Wave0 = 0;
+                    int Wave1 = 0;
+                    int Wave2 = 0;
+                    int Wave3 = 0;
+                    int Wave4 = 0;
+                    int Wave5 = 0;
+                    int Wave6 = 0;
+                    int Wave7 = 0;
+                    int Wave8 = 0;
+                    foreach (string item in lines)
+                    {
+                        //if (item.Length > 2)
+                        {
+                            string[] str = item.Split(new Char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                            //Wave0 = Convert.ToInt32(str[0]);
+                            Wave1 = Convert.ToInt32(str[1]);
+                            Wave2 = Convert.ToInt32(str[2]);
+                            Wave3 = Convert.ToInt32(str[3]);
+                            Wave4 = Convert.ToInt32(str[4]);
+                            Wave5 = Convert.ToInt32(str[5]);
+                            Wave6 = Convert.ToInt32(str[6]);
+                            Wave7 = Convert.ToInt32(str[7]);
+                            Wave8 = Convert.ToInt32(str[8]);
+                            dataTables[WaveIndex].Rows.Add(WaveXIndex++, Wave1, Wave2, Wave3, Wave4, Wave5, Wave6, Wave7, Wave8);
+
+                            //表中超过 MaxSeriesLen 条数据 切换下一个表 一个表中数据越长则图表刷新时间越长
+                            if (dataTables[WaveIndex].Rows.Count >= MaxSeriesLen)
+                            {
+                                WaveIndex++;
+                                for (int i = MaxSeriesLen / 2; i < MaxSeriesLen; i++)
+                                {
+                                    dataTables[WaveIndex].Rows.Add(dataTables[WaveIndex - 1].Rows[i].ItemArray);
+                                }
+
+                                this.BeginInvoke(new Action(() => trackBar1.Maximum += 10));
+
+                                if (ckbUpdata.Checked)
+                                {
+                                    //显示最新数据点
+                                    chartWave.DataSource = dataTables[WaveIndex];
+
+                                    this.BeginInvoke(new Action(() => { trackBar1.Value = trackBar1.Maximum; }));
+                                }
+                            }
+                        }
+                    }
+                    chartWave.DataBind();
+                }
+                catch(Exception exp)
+                {
+                    MessageBox.Show(exp.Message);
+                }
+            }
+        }
+
+        private void btnWaveSave_Click(object sender, EventArgs e)
+        {
+            if(WaveXIndex > 0)
+            {
+                if (saveWaveFile.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        if (File.Exists(saveWaveFile.FileName))
+                        {
+                            File.Delete(saveWaveFile.FileName);
+                        }
+
+                        for (int i = 0; i <= WaveIndex; i += 2)
+                        {
+                            foreach (DataRow item in dataTables[i].Rows)
+                            {
+                                File.AppendAllText(saveWaveFile.FileName, item[0].ToString().PadLeft(10, ' ')
+                                                                    + item[1].ToString().PadLeft(10, ' ')
+                                                                    + item[2].ToString().PadLeft(10, ' ')
+                                                                    + item[3].ToString().PadLeft(10, ' ')
+                                                                    + item[4].ToString().PadLeft(10, ' ')
+                                                                    + item[5].ToString().PadLeft(10, ' ')
+                                                                    + item[6].ToString().PadLeft(10, ' ')
+                                                                    + item[7].ToString().PadLeft(10, ' ')
+                                                                    + item[8].ToString().PadLeft(10, ' ') + "\r\n");
+                            }
+                        }
+                    }
+                    catch(Exception exp)
+                    {
+                        MessageBox.Show(exp.Message);
+                    }
+
+                }
+            }
+        }
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            if (WaveIndex != trackBar1.Value / 10)
+            {
+                //切换数据源
+                WaveIndex = trackBar1.Value / 10;
+
+                chartWave.DataSource = dataTables[WaveIndex];
+
+                chartWave.DataBind();
+            }
+
+            if ((trackBar1.Value % 10) / 10.0 * (dataTables[WaveIndex].Rows.Count / 2) + chartWave.ChartAreas[0].AxisX.ScaleView.Size < MaxSeriesLen)
+            {
+                //获取x轴起始坐标
+                chartWave.ChartAreas[0].AxisX.ScaleView.Position = (trackBar1.Value % 10) / 10.0 * (dataTables[WaveIndex].Rows.Count / 2);
+            }
+            else
+            {
+                chartWave.ChartAreas[0].AxisX.ScaleView.Position = 0;
+            }
         }
     }
 }

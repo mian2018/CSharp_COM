@@ -46,7 +46,8 @@ namespace CSharp_串口助手
         /// </summary>
         private void DataTableSave()
         {
-            MySerializeToXml.SerializeToXml<DataTable>(dataTable, dataTablePath);
+            if(!MySerializeToXml.DeserializeWithXml<DataTable>(dataTablePath).Equals(dataTable))
+                MySerializeToXml.SerializeToXml<DataTable>(dataTable, dataTablePath);
         }
 
         /// <summary>

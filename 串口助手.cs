@@ -325,24 +325,37 @@ namespace CSharp_串口助手
         {
             SaveParam();
             DataTableSave();
+            SaveSeriesParame();
         }
         private void tabControlCOM_SelectedIndexChanged(object sender, EventArgs e)
         {
             tabControlCOM.SelectedTab.Controls.Add(groupBoxCOMInfo);
-            tabControlCOM.SelectedTab.Controls.Add(groupBoxRxInfo);
-            tabControlCOM.SelectedTab.Controls.Add(groupBoxTxInfo);
-            tabControlCOM.SelectedTab.Controls.Add(txbRx);
             tabControlCOM.SelectedTab.Controls.Add(状态栏);
-
-            if(tabControlCOM.SelectedIndex == 1)
+            //tabControlCOM.SelectedTab.Controls.Add(groupBoxRxInfo);
+            //tabControlCOM.SelectedTab.Controls.Add(groupBoxTxInfo);
+            //tabControlCOM.SelectedTab.Controls.Add(txbRx);
+            if (tabControlCOM.SelectedIndex == 1)
             {
+                tabControlCOM.SelectedTab.Controls.Add(groupBoxRxInfo);
+                tabControlCOM.SelectedTab.Controls.Add(groupBoxTxInfo);
+                tabControlCOM.SelectedTab.Controls.Add(txbRx);
                 groupBoxTxInfo.Enabled = false;
                 ckbAutoTx.Checked = false;
             }
             else if (tabControlCOM.SelectedIndex == 0)
             {
+                tabControlCOM.SelectedTab.Controls.Add(groupBoxRxInfo);
+                tabControlCOM.SelectedTab.Controls.Add(groupBoxTxInfo);
+                tabControlCOM.SelectedTab.Controls.Add(txbRx);
                 groupBoxTxInfo.Enabled = true;
             }
+            else if(tabControlCOM.SelectedIndex == 2)
+            {
+
+            }
+
+            
+            
         }
 
         private void toolStatusRxCounter_DoubleClick(object sender, EventArgs e)
@@ -759,6 +772,6 @@ namespace CSharp_串口助手
             return null;
         }
 
-
+        
     }
 }

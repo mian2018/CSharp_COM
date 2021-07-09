@@ -30,26 +30,26 @@ namespace CSharp_串口助手
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint2 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint3 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint4 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint5 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint6 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint7 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint8 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint9 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series19 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint19 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.Series series20 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint20 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.Series series21 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint21 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.Series series22 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint22 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.Series series23 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint23 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.Series series24 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint24 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.Series series25 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint25 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.Series series26 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint26 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.Series series27 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint27 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(串口助手));
             this.tabControlCOM = new System.Windows.Forms.TabControl();
             this.Page1 = new System.Windows.Forms.TabPage();
@@ -116,6 +116,8 @@ namespace CSharp_串口助手
             this.labX = new System.Windows.Forms.Label();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnWaveLoad = new System.Windows.Forms.Button();
+            this.btnWaveSave = new System.Windows.Forms.Button();
             this.btnWaveClear = new System.Windows.Forms.Button();
             this.ckbUpdata = new System.Windows.Forms.CheckBox();
             this.txbXSize = new System.Windows.Forms.TextBox();
@@ -146,11 +148,9 @@ namespace CSharp_串口助手
             this.TxAutoSendTimer = new System.Windows.Forms.Timer(this.components);
             this.打开文件 = new System.Windows.Forms.OpenFileDialog();
             this.保存文件 = new System.Windows.Forms.SaveFileDialog();
-            this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.菜单 = new System.Windows.Forms.MenuStrip();
             this.colorDialogWave = new System.Windows.Forms.ColorDialog();
+            this.saveWaveFile = new System.Windows.Forms.SaveFileDialog();
+            this.openWaveFile = new System.Windows.Forms.OpenFileDialog();
             this.tabControlCOM.SuspendLayout();
             this.Page1.SuspendLayout();
             this.状态栏.SuspendLayout();
@@ -164,7 +164,6 @@ namespace CSharp_串口助手
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartWave)).BeginInit();
-            this.菜单.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlCOM
@@ -176,10 +175,10 @@ namespace CSharp_串口助手
             this.tabControlCOM.Controls.Add(this.Page2);
             this.tabControlCOM.Controls.Add(this.Page3);
             this.tabControlCOM.Controls.Add(this.Page4);
-            this.tabControlCOM.Location = new System.Drawing.Point(0, 32);
+            this.tabControlCOM.Location = new System.Drawing.Point(0, 1);
             this.tabControlCOM.Name = "tabControlCOM";
             this.tabControlCOM.SelectedIndex = 0;
-            this.tabControlCOM.Size = new System.Drawing.Size(553, 573);
+            this.tabControlCOM.Size = new System.Drawing.Size(553, 604);
             this.tabControlCOM.TabIndex = 0;
             this.tabControlCOM.SelectedIndexChanged += new System.EventHandler(this.tabControlCOM_SelectedIndexChanged);
             // 
@@ -194,7 +193,7 @@ namespace CSharp_串口助手
             this.Page1.Location = new System.Drawing.Point(4, 22);
             this.Page1.Name = "Page1";
             this.Page1.Padding = new System.Windows.Forms.Padding(3);
-            this.Page1.Size = new System.Drawing.Size(545, 547);
+            this.Page1.Size = new System.Drawing.Size(545, 578);
             this.Page1.TabIndex = 0;
             this.Page1.Text = "串口助手";
             this.Page1.UseVisualStyleBackColor = true;
@@ -211,7 +210,7 @@ namespace CSharp_串口助手
             this.toolStripStatusLabel6,
             this.toolStripStatusLabel7,
             this.toolStatusRxCounter});
-            this.状态栏.Location = new System.Drawing.Point(3, 522);
+            this.状态栏.Location = new System.Drawing.Point(3, 553);
             this.状态栏.Name = "状态栏";
             this.状态栏.Size = new System.Drawing.Size(539, 22);
             this.状态栏.TabIndex = 29;
@@ -481,7 +480,7 @@ namespace CSharp_串口助手
             this.txbTx.Multiline = true;
             this.txbTx.Name = "txbTx";
             this.txbTx.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txbTx.Size = new System.Drawing.Size(345, 121);
+            this.txbTx.Size = new System.Drawing.Size(345, 152);
             this.txbTx.TabIndex = 28;
             this.txbTx.WordWrap = false;
             this.txbTx.DragDrop += new System.Windows.Forms.DragEventHandler(this.txbTx_DragDrop);
@@ -579,7 +578,7 @@ namespace CSharp_串口助手
             this.groupBoxTxInfo.MinimumSize = new System.Drawing.Size(197, 114);
             this.groupBoxTxInfo.Name = "groupBoxTxInfo";
             this.groupBoxTxInfo.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBoxTxInfo.Size = new System.Drawing.Size(197, 120);
+            this.groupBoxTxInfo.Size = new System.Drawing.Size(197, 151);
             this.groupBoxTxInfo.TabIndex = 26;
             this.groupBoxTxInfo.TabStop = false;
             // 
@@ -773,7 +772,7 @@ namespace CSharp_串口助手
             this.Page2.Location = new System.Drawing.Point(4, 22);
             this.Page2.Name = "Page2";
             this.Page2.Padding = new System.Windows.Forms.Padding(3);
-            this.Page2.Size = new System.Drawing.Size(545, 547);
+            this.Page2.Size = new System.Drawing.Size(545, 578);
             this.Page2.TabIndex = 1;
             this.Page2.Text = "多条发送";
             this.Page2.UseVisualStyleBackColor = true;
@@ -800,7 +799,7 @@ namespace CSharp_串口助手
             this.DataGridViewCmd.Name = "DataGridViewCmd";
             this.DataGridViewCmd.RowHeadersVisible = false;
             this.DataGridViewCmd.RowTemplate.Height = 23;
-            this.DataGridViewCmd.Size = new System.Drawing.Size(345, 121);
+            this.DataGridViewCmd.Size = new System.Drawing.Size(345, 152);
             this.DataGridViewCmd.TabIndex = 0;
             this.DataGridViewCmd.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewCmd_CellContentClick);
             this.DataGridViewCmd.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridViewCmd_CellFormatting);
@@ -852,10 +851,10 @@ namespace CSharp_串口助手
             // Send
             // 
             this.Send.DataPropertyName = "DataTableSend";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Control;
-            this.Send.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Control;
+            this.Send.DefaultCellStyle = dataGridViewCellStyle3;
             this.Send.FillWeight = 10F;
             this.Send.HeaderText = "发送";
             this.Send.Name = "Send";
@@ -871,7 +870,7 @@ namespace CSharp_串口助手
             this.Page3.Controls.Add(this.chartWave);
             this.Page3.Location = new System.Drawing.Point(4, 22);
             this.Page3.Name = "Page3";
-            this.Page3.Size = new System.Drawing.Size(545, 547);
+            this.Page3.Size = new System.Drawing.Size(545, 578);
             this.Page3.TabIndex = 2;
             this.Page3.Text = "波形显示";
             this.Page3.UseVisualStyleBackColor = true;
@@ -903,16 +902,20 @@ namespace CSharp_串口助手
             this.trackBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.trackBar1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.trackBar1.Location = new System.Drawing.Point(236, 361);
+            this.trackBar1.Location = new System.Drawing.Point(236, 501);
             this.trackBar1.Maximum = 0;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(301, 45);
             this.trackBar1.TabIndex = 2;
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.panel1.Controls.Add(this.btnWaveLoad);
+            this.panel1.Controls.Add(this.btnWaveSave);
             this.panel1.Controls.Add(this.btnWaveClear);
             this.panel1.Controls.Add(this.ckbUpdata);
             this.panel1.Controls.Add(this.txbXSize);
@@ -936,19 +939,45 @@ namespace CSharp_串口助手
             this.panel1.Controls.Add(this.ckbWave2);
             this.panel1.Controls.Add(this.labWaveColor1);
             this.panel1.Controls.Add(this.ckbWave1);
-            this.panel1.Location = new System.Drawing.Point(200, 405);
+            this.panel1.Location = new System.Drawing.Point(0, 267);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(345, 121);
+            this.panel1.Size = new System.Drawing.Size(197, 279);
             this.panel1.TabIndex = 1;
+            // 
+            // btnWaveLoad
+            // 
+            this.btnWaveLoad.BackColor = System.Drawing.Color.DeepPink;
+            this.btnWaveLoad.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnWaveLoad.Location = new System.Drawing.Point(5, 242);
+            this.btnWaveLoad.Name = "btnWaveLoad";
+            this.btnWaveLoad.Size = new System.Drawing.Size(87, 23);
+            this.btnWaveLoad.TabIndex = 34;
+            this.btnWaveLoad.Text = "导入波形";
+            this.btnWaveLoad.UseVisualStyleBackColor = false;
+            this.btnWaveLoad.Click += new System.EventHandler(this.btnWaveLoad_Click);
+            // 
+            // btnWaveSave
+            // 
+            this.btnWaveSave.BackColor = System.Drawing.Color.DeepPink;
+            this.btnWaveSave.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnWaveSave.Location = new System.Drawing.Point(98, 242);
+            this.btnWaveSave.Name = "btnWaveSave";
+            this.btnWaveSave.Size = new System.Drawing.Size(87, 23);
+            this.btnWaveSave.TabIndex = 33;
+            this.btnWaveSave.Text = "导出数据";
+            this.btnWaveSave.UseVisualStyleBackColor = false;
+            this.btnWaveSave.Click += new System.EventHandler(this.btnWaveSave_Click);
             // 
             // btnWaveClear
             // 
-            this.btnWaveClear.Location = new System.Drawing.Point(138, 95);
+            this.btnWaveClear.BackColor = System.Drawing.Color.DeepPink;
+            this.btnWaveClear.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnWaveClear.Location = new System.Drawing.Point(5, 213);
             this.btnWaveClear.Name = "btnWaveClear";
             this.btnWaveClear.Size = new System.Drawing.Size(87, 23);
             this.btnWaveClear.TabIndex = 32;
             this.btnWaveClear.Text = "清除波形";
-            this.btnWaveClear.UseVisualStyleBackColor = true;
+            this.btnWaveClear.UseVisualStyleBackColor = false;
             this.btnWaveClear.Click += new System.EventHandler(this.btnWaveClear_Click);
             // 
             // ckbUpdata
@@ -956,7 +985,7 @@ namespace CSharp_串口助手
             this.ckbUpdata.AutoSize = true;
             this.ckbUpdata.Checked = true;
             this.ckbUpdata.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckbUpdata.Location = new System.Drawing.Point(3, 99);
+            this.ckbUpdata.Location = new System.Drawing.Point(4, 100);
             this.ckbUpdata.Name = "ckbUpdata";
             this.ckbUpdata.Size = new System.Drawing.Size(96, 16);
             this.ckbUpdata.TabIndex = 31;
@@ -965,9 +994,10 @@ namespace CSharp_串口助手
             // 
             // txbXSize
             // 
-            this.txbXSize.Location = new System.Drawing.Point(234, 61);
+            this.txbXSize.Font = new System.Drawing.Font("楷体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txbXSize.Location = new System.Drawing.Point(79, 176);
             this.txbXSize.Name = "txbXSize";
-            this.txbXSize.Size = new System.Drawing.Size(87, 21);
+            this.txbXSize.Size = new System.Drawing.Size(90, 23);
             this.txbXSize.TabIndex = 30;
             this.txbXSize.Text = "100";
             this.txbXSize.TextChanged += new System.EventHandler(this.txbXSize_TextChanged);
@@ -975,7 +1005,7 @@ namespace CSharp_串口助手
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(169, 65);
+            this.label9.Location = new System.Drawing.Point(8, 179);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(59, 12);
             this.label9.TabIndex = 29;
@@ -983,18 +1013,20 @@ namespace CSharp_串口助手
             // 
             // btnWaveDisplay
             // 
-            this.btnWaveDisplay.Location = new System.Drawing.Point(234, 95);
+            this.btnWaveDisplay.BackColor = System.Drawing.Color.DeepPink;
+            this.btnWaveDisplay.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnWaveDisplay.Location = new System.Drawing.Point(98, 213);
             this.btnWaveDisplay.Name = "btnWaveDisplay";
             this.btnWaveDisplay.Size = new System.Drawing.Size(87, 23);
             this.btnWaveDisplay.TabIndex = 28;
             this.btnWaveDisplay.Text = "开始显示";
-            this.btnWaveDisplay.UseVisualStyleBackColor = true;
+            this.btnWaveDisplay.UseVisualStyleBackColor = false;
             this.btnWaveDisplay.Click += new System.EventHandler(this.btnWaveDisplay_Click);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(1, 65);
+            this.label8.Location = new System.Drawing.Point(8, 147);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(65, 12);
             this.label8.TabIndex = 27;
@@ -1003,23 +1035,23 @@ namespace CSharp_串口助手
             // cmbWaveType
             // 
             this.cmbWaveType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbWaveType.Font = new System.Drawing.Font("楷体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cmbWaveType.FormattingEnabled = true;
             this.cmbWaveType.Items.AddRange(new object[] {
             "点",
             "折线",
             "曲线",
             "柱状图"});
-            this.cmbWaveType.Location = new System.Drawing.Point(69, 62);
+            this.cmbWaveType.Location = new System.Drawing.Point(79, 144);
             this.cmbWaveType.Name = "cmbWaveType";
-            this.cmbWaveType.Size = new System.Drawing.Size(87, 20);
+            this.cmbWaveType.Size = new System.Drawing.Size(90, 22);
             this.cmbWaveType.TabIndex = 26;
             this.cmbWaveType.SelectedIndexChanged += new System.EventHandler(this.cmbWaveType_SelectedIndexChanged);
             // 
             // labWaveColor8
             // 
-            this.labWaveColor8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labWaveColor8.AutoSize = true;
-            this.labWaveColor8.Location = new System.Drawing.Point(304, 26);
+            this.labWaveColor8.Location = new System.Drawing.Point(138, 79);
             this.labWaveColor8.Name = "labWaveColor8";
             this.labWaveColor8.Size = new System.Drawing.Size(29, 12);
             this.labWaveColor8.TabIndex = 25;
@@ -1028,11 +1060,10 @@ namespace CSharp_串口助手
             // 
             // ckbWave8
             // 
-            this.ckbWave8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ckbWave8.AutoSize = true;
             this.ckbWave8.Checked = true;
             this.ckbWave8.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckbWave8.Location = new System.Drawing.Point(255, 25);
+            this.ckbWave8.Location = new System.Drawing.Point(89, 78);
             this.ckbWave8.Name = "ckbWave8";
             this.ckbWave8.Size = new System.Drawing.Size(54, 16);
             this.ckbWave8.TabIndex = 24;
@@ -1042,9 +1073,8 @@ namespace CSharp_串口助手
             // 
             // labWaveColor7
             // 
-            this.labWaveColor7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labWaveColor7.AutoSize = true;
-            this.labWaveColor7.Location = new System.Drawing.Point(220, 26);
+            this.labWaveColor7.Location = new System.Drawing.Point(54, 79);
             this.labWaveColor7.Name = "labWaveColor7";
             this.labWaveColor7.Size = new System.Drawing.Size(29, 12);
             this.labWaveColor7.TabIndex = 22;
@@ -1053,11 +1083,10 @@ namespace CSharp_串口助手
             // 
             // ckbWave7
             // 
-            this.ckbWave7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ckbWave7.AutoSize = true;
             this.ckbWave7.Checked = true;
             this.ckbWave7.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckbWave7.Location = new System.Drawing.Point(171, 25);
+            this.ckbWave7.Location = new System.Drawing.Point(5, 78);
             this.ckbWave7.Name = "ckbWave7";
             this.ckbWave7.Size = new System.Drawing.Size(54, 16);
             this.ckbWave7.TabIndex = 21;
@@ -1067,9 +1096,8 @@ namespace CSharp_串口助手
             // 
             // labWaveColor6
             // 
-            this.labWaveColor6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labWaveColor6.AutoSize = true;
-            this.labWaveColor6.Location = new System.Drawing.Point(136, 26);
+            this.labWaveColor6.Location = new System.Drawing.Point(138, 57);
             this.labWaveColor6.Name = "labWaveColor6";
             this.labWaveColor6.Size = new System.Drawing.Size(29, 12);
             this.labWaveColor6.TabIndex = 19;
@@ -1078,11 +1106,10 @@ namespace CSharp_串口助手
             // 
             // ckbWave6
             // 
-            this.ckbWave6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ckbWave6.AutoSize = true;
             this.ckbWave6.Checked = true;
             this.ckbWave6.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckbWave6.Location = new System.Drawing.Point(87, 25);
+            this.ckbWave6.Location = new System.Drawing.Point(89, 56);
             this.ckbWave6.Name = "ckbWave6";
             this.ckbWave6.Size = new System.Drawing.Size(54, 16);
             this.ckbWave6.TabIndex = 18;
@@ -1092,9 +1119,8 @@ namespace CSharp_串口助手
             // 
             // labWaveColor5
             // 
-            this.labWaveColor5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labWaveColor5.AutoSize = true;
-            this.labWaveColor5.Location = new System.Drawing.Point(52, 26);
+            this.labWaveColor5.Location = new System.Drawing.Point(54, 57);
             this.labWaveColor5.Name = "labWaveColor5";
             this.labWaveColor5.Size = new System.Drawing.Size(29, 12);
             this.labWaveColor5.TabIndex = 16;
@@ -1103,11 +1129,10 @@ namespace CSharp_串口助手
             // 
             // ckbWave5
             // 
-            this.ckbWave5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ckbWave5.AutoSize = true;
             this.ckbWave5.Checked = true;
             this.ckbWave5.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckbWave5.Location = new System.Drawing.Point(3, 25);
+            this.ckbWave5.Location = new System.Drawing.Point(5, 56);
             this.ckbWave5.Name = "ckbWave5";
             this.ckbWave5.Size = new System.Drawing.Size(54, 16);
             this.ckbWave5.TabIndex = 15;
@@ -1117,9 +1142,8 @@ namespace CSharp_串口助手
             // 
             // labWaveColor4
             // 
-            this.labWaveColor4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labWaveColor4.AutoSize = true;
-            this.labWaveColor4.Location = new System.Drawing.Point(304, 4);
+            this.labWaveColor4.Location = new System.Drawing.Point(138, 35);
             this.labWaveColor4.Name = "labWaveColor4";
             this.labWaveColor4.Size = new System.Drawing.Size(29, 12);
             this.labWaveColor4.TabIndex = 13;
@@ -1128,11 +1152,10 @@ namespace CSharp_串口助手
             // 
             // ckbWave4
             // 
-            this.ckbWave4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ckbWave4.AutoSize = true;
             this.ckbWave4.Checked = true;
             this.ckbWave4.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckbWave4.Location = new System.Drawing.Point(255, 3);
+            this.ckbWave4.Location = new System.Drawing.Point(89, 34);
             this.ckbWave4.Name = "ckbWave4";
             this.ckbWave4.Size = new System.Drawing.Size(54, 16);
             this.ckbWave4.TabIndex = 12;
@@ -1142,9 +1165,8 @@ namespace CSharp_串口助手
             // 
             // labWaveColor3
             // 
-            this.labWaveColor3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labWaveColor3.AutoSize = true;
-            this.labWaveColor3.Location = new System.Drawing.Point(220, 4);
+            this.labWaveColor3.Location = new System.Drawing.Point(54, 35);
             this.labWaveColor3.Name = "labWaveColor3";
             this.labWaveColor3.Size = new System.Drawing.Size(29, 12);
             this.labWaveColor3.TabIndex = 10;
@@ -1153,11 +1175,10 @@ namespace CSharp_串口助手
             // 
             // ckbWave3
             // 
-            this.ckbWave3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ckbWave3.AutoSize = true;
             this.ckbWave3.Checked = true;
             this.ckbWave3.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckbWave3.Location = new System.Drawing.Point(171, 3);
+            this.ckbWave3.Location = new System.Drawing.Point(5, 34);
             this.ckbWave3.Name = "ckbWave3";
             this.ckbWave3.Size = new System.Drawing.Size(54, 16);
             this.ckbWave3.TabIndex = 9;
@@ -1167,9 +1188,8 @@ namespace CSharp_串口助手
             // 
             // labWaveColor2
             // 
-            this.labWaveColor2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labWaveColor2.AutoSize = true;
-            this.labWaveColor2.Location = new System.Drawing.Point(136, 4);
+            this.labWaveColor2.Location = new System.Drawing.Point(138, 13);
             this.labWaveColor2.Name = "labWaveColor2";
             this.labWaveColor2.Size = new System.Drawing.Size(29, 12);
             this.labWaveColor2.TabIndex = 7;
@@ -1178,11 +1198,10 @@ namespace CSharp_串口助手
             // 
             // ckbWave2
             // 
-            this.ckbWave2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ckbWave2.AutoSize = true;
             this.ckbWave2.Checked = true;
             this.ckbWave2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckbWave2.Location = new System.Drawing.Point(87, 3);
+            this.ckbWave2.Location = new System.Drawing.Point(89, 12);
             this.ckbWave2.Name = "ckbWave2";
             this.ckbWave2.Size = new System.Drawing.Size(54, 16);
             this.ckbWave2.TabIndex = 6;
@@ -1192,9 +1211,8 @@ namespace CSharp_串口助手
             // 
             // labWaveColor1
             // 
-            this.labWaveColor1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labWaveColor1.AutoSize = true;
-            this.labWaveColor1.Location = new System.Drawing.Point(52, 4);
+            this.labWaveColor1.Location = new System.Drawing.Point(54, 13);
             this.labWaveColor1.Name = "labWaveColor1";
             this.labWaveColor1.Size = new System.Drawing.Size(29, 12);
             this.labWaveColor1.TabIndex = 4;
@@ -1203,11 +1221,10 @@ namespace CSharp_串口助手
             // 
             // ckbWave1
             // 
-            this.ckbWave1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ckbWave1.AutoSize = true;
             this.ckbWave1.Checked = true;
             this.ckbWave1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckbWave1.Location = new System.Drawing.Point(3, 3);
+            this.ckbWave1.Location = new System.Drawing.Point(5, 12);
             this.ckbWave1.Name = "ckbWave1";
             this.ckbWave1.Size = new System.Drawing.Size(54, 16);
             this.ckbWave1.TabIndex = 0;
@@ -1220,142 +1237,134 @@ namespace CSharp_串口助手
             this.chartWave.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.AxisX.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Triangle;
-            chartArea1.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
-            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea1.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            chartArea1.AxisX.MaximumAutoSize = 80F;
-            chartArea1.AxisX.MinorGrid.Enabled = true;
-            chartArea1.AxisX.MinorGrid.LineColor = System.Drawing.Color.Gainsboro;
-            chartArea1.AxisX.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            chartArea1.AxisX.MinorTickMark.Enabled = true;
-            chartArea1.AxisX.MinorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
-            chartArea1.AxisX.ScaleView.Size = 100D;
-            chartArea1.AxisY.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Triangle;
-            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea1.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            chartArea1.AxisY.MinorGrid.Enabled = true;
-            chartArea1.AxisY.MinorGrid.LineColor = System.Drawing.Color.Gainsboro;
-            chartArea1.AxisY.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            chartArea1.AxisY.MinorTickMark.Enabled = true;
-            chartArea1.AxisY.MinorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
-            chartArea1.AxisY.ScaleView.Size = 100D;
-            chartArea1.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea1.CursorX.IsUserEnabled = true;
-            chartArea1.CursorX.IsUserSelectionEnabled = true;
-            chartArea1.CursorX.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            chartArea1.CursorY.IsUserEnabled = true;
-            chartArea1.CursorY.IsUserSelectionEnabled = true;
-            chartArea1.CursorY.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            chartArea1.Name = "ChartArea1";
-            chartArea1.Position.Auto = false;
-            chartArea1.Position.Height = 90F;
-            chartArea1.Position.Width = 94F;
-            chartArea1.Position.X = 3F;
-            chartArea1.Position.Y = 3F;
-            this.chartWave.ChartAreas.Add(chartArea1);
+            chartArea3.AxisX.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Triangle;
+            chartArea3.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea3.AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea3.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea3.AxisX.MaximumAutoSize = 80F;
+            chartArea3.AxisX.MinorGrid.Enabled = true;
+            chartArea3.AxisX.MinorGrid.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea3.AxisX.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea3.AxisX.MinorTickMark.Enabled = true;
+            chartArea3.AxisX.MinorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
+            chartArea3.AxisX.ScaleView.Size = 100D;
+            chartArea3.AxisY.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Triangle;
+            chartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea3.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea3.AxisY.MinorGrid.Enabled = true;
+            chartArea3.AxisY.MinorGrid.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea3.AxisY.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea3.AxisY.MinorTickMark.Enabled = true;
+            chartArea3.AxisY.MinorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
+            chartArea3.AxisY.ScaleView.Size = 100D;
+            chartArea3.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea3.CursorX.IsUserEnabled = true;
+            chartArea3.CursorX.IsUserSelectionEnabled = true;
+            chartArea3.CursorX.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea3.CursorY.IsUserEnabled = true;
+            chartArea3.CursorY.IsUserSelectionEnabled = true;
+            chartArea3.CursorY.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea3.Name = "ChartArea1";
+            chartArea3.Position.Auto = false;
+            chartArea3.Position.Height = 87F;
+            chartArea3.Position.Width = 94F;
+            chartArea3.Position.X = 3F;
+            chartArea3.Position.Y = 3F;
+            this.chartWave.ChartAreas.Add(chartArea3);
             this.chartWave.Cursor = System.Windows.Forms.Cursors.Cross;
             this.chartWave.Location = new System.Drawing.Point(200, 3);
             this.chartWave.Name = "chartWave";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
-            series1.CustomProperties = "IsXAxisQuantitative=True";
-            series1.IsVisibleInLegend = false;
-            series1.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
-            series1.Name = "Series1";
-            series1.Points.Add(dataPoint1);
-            series1.ToolTip = "#INDEX,  #VAL";
-            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
-            series2.CustomProperties = "IsXAxisQuantitative=True";
-            series2.IsVisibleInLegend = false;
-            series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
-            series2.Name = "Series2";
-            series2.Points.Add(dataPoint2);
-            series2.ToolTip = "#INDEX,  #VAL";
-            series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            series2.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
-            series3.CustomProperties = "IsXAxisQuantitative=True";
-            series3.IsVisibleInLegend = false;
-            series3.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
-            series3.Name = "Series3";
-            series3.Points.Add(dataPoint3);
-            series3.ToolTip = "#INDEX,  #VAL";
-            series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            series3.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
-            series4.CustomProperties = "IsXAxisQuantitative=True";
-            series4.IsVisibleInLegend = false;
-            series4.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
-            series4.Name = "Series4";
-            series4.Points.Add(dataPoint4);
-            series4.ToolTip = "#INDEX,  #VAL";
-            series4.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            series4.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
-            series5.CustomProperties = "IsXAxisQuantitative=True";
-            series5.IsVisibleInLegend = false;
-            series5.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
-            series5.Name = "Series5";
-            series5.Points.Add(dataPoint5);
-            series5.ToolTip = "#INDEX,  #VAL";
-            series5.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            series5.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
-            series6.CustomProperties = "IsXAxisQuantitative=True";
-            series6.IsVisibleInLegend = false;
-            series6.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
-            series6.Name = "Series6";
-            series6.Points.Add(dataPoint6);
-            series6.ToolTip = "#INDEX,  #VAL";
-            series6.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            series6.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
-            series7.CustomProperties = "IsXAxisQuantitative=True";
-            series7.IsVisibleInLegend = false;
-            series7.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
-            series7.Name = "Series7";
-            series7.Points.Add(dataPoint7);
-            series7.ToolTip = "#INDEX,  #VAL";
-            series7.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            series7.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
-            series8.CustomProperties = "IsXAxisQuantitative=True";
-            series8.IsVisibleInLegend = false;
-            series8.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
-            series8.Name = "Series8";
-            series8.Points.Add(dataPoint8);
-            series8.ToolTip = "#INDEX,  #VAL";
-            series8.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            series8.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
-            series9.Color = System.Drawing.SystemColors.Control;
-            series9.CustomProperties = "IsXAxisQuantitative=True";
-            series9.IsVisibleInLegend = false;
-            series9.Name = "Series9";
-            series9.Points.Add(dataPoint9);
-            series9.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            series9.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            this.chartWave.Series.Add(series1);
-            this.chartWave.Series.Add(series2);
-            this.chartWave.Series.Add(series3);
-            this.chartWave.Series.Add(series4);
-            this.chartWave.Series.Add(series5);
-            this.chartWave.Series.Add(series6);
-            this.chartWave.Series.Add(series7);
-            this.chartWave.Series.Add(series8);
-            this.chartWave.Series.Add(series9);
-            this.chartWave.Size = new System.Drawing.Size(345, 396);
+            series19.ChartArea = "ChartArea1";
+            series19.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
+            series19.CustomProperties = "IsXAxisQuantitative=True";
+            series19.IsVisibleInLegend = false;
+            series19.Name = "Series1";
+            series19.Points.Add(dataPoint19);
+            series19.ToolTip = "#VALX,  #VAL";
+            series19.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series19.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series20.ChartArea = "ChartArea1";
+            series20.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
+            series20.CustomProperties = "IsXAxisQuantitative=True";
+            series20.IsVisibleInLegend = false;
+            series20.Name = "Series2";
+            series20.Points.Add(dataPoint20);
+            series20.ToolTip = "#VALX,  #VAL";
+            series20.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series20.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series21.ChartArea = "ChartArea1";
+            series21.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
+            series21.CustomProperties = "IsXAxisQuantitative=True";
+            series21.IsVisibleInLegend = false;
+            series21.Name = "Series3";
+            series21.Points.Add(dataPoint21);
+            series21.ToolTip = "#VALX,  #VAL";
+            series21.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series21.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series22.ChartArea = "ChartArea1";
+            series22.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
+            series22.CustomProperties = "IsXAxisQuantitative=True";
+            series22.IsVisibleInLegend = false;
+            series22.Name = "Series4";
+            series22.Points.Add(dataPoint22);
+            series22.ToolTip = "#VALX,  #VAL";
+            series22.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series22.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series23.ChartArea = "ChartArea1";
+            series23.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
+            series23.CustomProperties = "IsXAxisQuantitative=True";
+            series23.IsVisibleInLegend = false;
+            series23.Name = "Series5";
+            series23.Points.Add(dataPoint23);
+            series23.ToolTip = "#VALX,  #VAL";
+            series23.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series23.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series24.ChartArea = "ChartArea1";
+            series24.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
+            series24.CustomProperties = "IsXAxisQuantitative=True";
+            series24.IsVisibleInLegend = false;
+            series24.Name = "Series6";
+            series24.Points.Add(dataPoint24);
+            series24.ToolTip = "#VALX,  #VAL";
+            series24.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series24.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series25.ChartArea = "ChartArea1";
+            series25.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
+            series25.CustomProperties = "IsXAxisQuantitative=True";
+            series25.IsVisibleInLegend = false;
+            series25.Name = "Series7";
+            series25.Points.Add(dataPoint25);
+            series25.ToolTip = "#VALX,  #VAL";
+            series25.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series25.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series26.ChartArea = "ChartArea1";
+            series26.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
+            series26.CustomProperties = "IsXAxisQuantitative=True";
+            series26.IsVisibleInLegend = false;
+            series26.Name = "Series8";
+            series26.Points.Add(dataPoint26);
+            series26.ToolTip = "#VALX,  #VAL";
+            series26.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series26.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series27.ChartArea = "ChartArea1";
+            series27.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
+            series27.Color = System.Drawing.SystemColors.Control;
+            series27.CustomProperties = "IsXAxisQuantitative=True";
+            series27.IsVisibleInLegend = false;
+            series27.Name = "Series9";
+            series27.Points.Add(dataPoint27);
+            series27.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series27.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            this.chartWave.Series.Add(series19);
+            this.chartWave.Series.Add(series20);
+            this.chartWave.Series.Add(series21);
+            this.chartWave.Series.Add(series22);
+            this.chartWave.Series.Add(series23);
+            this.chartWave.Series.Add(series24);
+            this.chartWave.Series.Add(series25);
+            this.chartWave.Series.Add(series26);
+            this.chartWave.Series.Add(series27);
+            this.chartWave.Size = new System.Drawing.Size(345, 543);
             this.chartWave.TabIndex = 0;
             this.chartWave.CursorPositionChanged += new System.EventHandler<System.Windows.Forms.DataVisualization.Charting.CursorEventArgs>(this.chartWave_CursorPositionChanged);
             // 
@@ -1363,7 +1372,7 @@ namespace CSharp_串口助手
             // 
             this.Page4.Location = new System.Drawing.Point(4, 22);
             this.Page4.Name = "Page4";
-            this.Page4.Size = new System.Drawing.Size(545, 547);
+            this.Page4.Size = new System.Drawing.Size(545, 578);
             this.Page4.TabIndex = 3;
             this.Page4.Text = "modus";
             this.Page4.UseVisualStyleBackColor = true;
@@ -1397,41 +1406,24 @@ namespace CSharp_串口助手
             this.保存文件.Filter = "所有文件|*.*";
             this.保存文件.Title = "保存文件";
             // 
-            // 文件ToolStripMenuItem
-            // 
-            this.文件ToolStripMenuItem.Name = "文件ToolStripMenuItem";
-            this.文件ToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
-            this.文件ToolStripMenuItem.Text = "文件";
-            // 
-            // 设置ToolStripMenuItem
-            // 
-            this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
-            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
-            this.设置ToolStripMenuItem.Text = "设置";
-            // 
-            // 帮助ToolStripMenuItem
-            // 
-            this.帮助ToolStripMenuItem.Name = "帮助ToolStripMenuItem";
-            this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
-            this.帮助ToolStripMenuItem.Text = "帮助";
-            // 
-            // 菜单
-            // 
-            this.菜单.Font = new System.Drawing.Font("楷体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.菜单.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.文件ToolStripMenuItem,
-            this.设置ToolStripMenuItem,
-            this.帮助ToolStripMenuItem});
-            this.菜单.Location = new System.Drawing.Point(0, 0);
-            this.菜单.Name = "菜单";
-            this.菜单.Size = new System.Drawing.Size(553, 24);
-            this.菜单.TabIndex = 1;
-            this.菜单.Text = "menuStrip1";
-            // 
             // colorDialogWave
             // 
             this.colorDialogWave.AnyColor = true;
             this.colorDialogWave.FullOpen = true;
+            // 
+            // saveWaveFile
+            // 
+            this.saveWaveFile.DefaultExt = "txt";
+            this.saveWaveFile.FileName = "wave";
+            this.saveWaveFile.Filter = "文本文件|*.txt";
+            this.saveWaveFile.Title = "保存波形文件";
+            // 
+            // openWaveFile
+            // 
+            this.openWaveFile.DefaultExt = "txt";
+            this.openWaveFile.FileName = "wave";
+            this.openWaveFile.Filter = "文本文件|*.txt";
+            this.openWaveFile.Title = "打开波形文件";
             // 
             // 串口助手
             // 
@@ -1439,11 +1431,9 @@ namespace CSharp_串口助手
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(553, 607);
             this.Controls.Add(this.tabControlCOM);
-            this.Controls.Add(this.菜单);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("楷体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.菜单;
             this.MinimumSize = new System.Drawing.Size(569, 646);
             this.Name = "串口助手";
             this.Text = "串口助手";
@@ -1469,10 +1459,7 @@ namespace CSharp_串口助手
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartWave)).EndInit();
-            this.菜单.ResumeLayout(false);
-            this.菜单.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -1545,10 +1532,6 @@ namespace CSharp_串口助手
         private System.Windows.Forms.DataGridViewCheckBoxColumn Hex;
         private System.Windows.Forms.DataGridViewCheckBoxColumn WordWarp;
         private System.Windows.Forms.DataGridViewButtonColumn Send;
-        private System.Windows.Forms.ToolStripMenuItem 文件ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 设置ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 帮助ToolStripMenuItem;
-        private System.Windows.Forms.MenuStrip 菜单;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartWave;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.CheckBox ckbWave1;
@@ -1578,6 +1561,10 @@ namespace CSharp_串口助手
         private System.Windows.Forms.Label labY;
         private System.Windows.Forms.Label labX;
         private System.Windows.Forms.ColorDialog colorDialogWave;
+        private System.Windows.Forms.Button btnWaveLoad;
+        private System.Windows.Forms.Button btnWaveSave;
+        private System.Windows.Forms.SaveFileDialog saveWaveFile;
+        private System.Windows.Forms.OpenFileDialog openWaveFile;
     }
 }
 
