@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -13,6 +13,7 @@ namespace CSharp_串口助手
     {
         private const int MaxSeriesLen = 10000;
         private int WaveIndex = 0;
+        private int WaveXIndex = 0;
         object chartLock = new object();
         private DataTable dataTableType = new DataTable("Wave");
         List<DataTable> dataTables = new List<DataTable>(1000);
@@ -48,15 +49,13 @@ namespace CSharp_串口助手
         int frameLen = 38;
         private void Analysis()
         {
-            //取消串口接收回调事件
-            serialPortCOM.DataReceived -= serialPortCOM_DataReceived;
+            
             List<byte> listBytes = new List<byte>(1024);
             int counter = 0;
             int yValue = int.MaxValue;
             while (true)
             {
                 Thread.Sleep(50);
-                yValue = int.MaxValue;
                 counter++;
                 if (serialPortCOM.IsOpen)
                 {
@@ -81,10 +80,10 @@ namespace CSharp_串口助手
 
                             lock (chartLock)
                             {
-                                dataTables[WaveIndex].Rows.Add(Wave1, Wave2, Wave3, Wave4, Wave5, Wave6, Wave7, Wave8, 0);
+                                dataTables[WaveIndex].Rows.Add(WaveXIndex++, Wave1, Wave2, Wave3, Wave4, Wave5, Wave6, Wave7, Wave8);
                                 
                                 //记录y值， 后面修改y轴位置
-                                for(int i = 0; i < 8; i++)
+                                for(int i = 1; i < 9; i++)
                                 {
                                     if(chartWave.Series[i].Enabled)
                                     {   
@@ -123,6 +122,7 @@ namespace CSharp_串口助手
 
                     if (counter > 20 && yValue < int.MaxValue)
                     {
+                        yValue = int.MaxValue;
                         counter = 0;
                         this.BeginInvoke(new Action(() => {
 
@@ -131,17 +131,17 @@ namespace CSharp_串口助手
                                 //X轴 滚动条位置 保持最新位置 - 99
                                 if (ckbUpdata.Checked)
                                 {
-                                    if (dataTables[dataTables.Count - 1].Rows.Count > chartWave.ChartAreas[0].AxisX.ScaleView.Size)
+                                    if (dataTables[WaveIndex].Rows.Count > chartWave.ChartAreas[0].AxisX.ScaleView.Size)
                                     {
-                                        chartWave.ChartAreas[0].AxisX.ScaleView.Position = dataTables[WaveIndex].Rows.Count - 1 - chartWave.ChartAreas[0].AxisX.ScaleView.Size;
+                                        chartWave.ChartAreas[0].AxisX.ScaleView.Position = WaveXIndex - chartWave.ChartAreas[0].AxisX.ScaleView.Size;
                                     }
                                     else
                                     {
                                         chartWave.ChartAreas[0].AxisX.ScaleView.Position = 0;
                                     }
 
-                                    //Y轴 滚动条位置 保持最新位置 - 50
-                                    chartWave.ChartAreas[0].AxisY.ScaleView.Position = yValue - 50;
+                                    //Y轴 滚动条位置 保持最新位置
+                                    chartWave.ChartAreas[0].AxisY.ScaleView.Position = yValue - chartWave.ChartAreas[0].AxisY.ScaleView.Size/2;
                                 }
 
                                 //X轴 数据的起始位置和结束位置 
@@ -193,15 +193,15 @@ namespace CSharp_串口助手
         private void cmbWaveType_SelectedIndexChanged(object sender, EventArgs e)
         {
             System.Windows.Forms.DataVisualization.Charting.SeriesChartType seriesChartType = new System.Windows.Forms.DataVisualization.Charting.SeriesChartType();
-            if ((string)cmbWaveType.SelectedValue == "曲线")
+            if (cmbWaveType.SelectedIndex == 2)
             {
                 seriesChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             }
-            else if ((string)cmbWaveType.SelectedValue == "折线")
+            else if (cmbWaveType.SelectedIndex == 1)
             {
                 seriesChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             }
-            else if ((string)cmbWaveType.SelectedValue == "柱状图")
+            else if (cmbWaveType.SelectedIndex == 3)
             {
                 seriesChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
             }
@@ -246,8 +246,12 @@ namespace CSharp_串口助手
                     dataTables[i].Clear();
                 }
                 WaveIndex = 0;
+                WaveXIndex = 0;
                 //绑定数据源
                 chartWave.DataSource = dataTables[0];
+
+                //刷新图表
+                chartWave.DataBind();
             }
         }
 
@@ -257,9 +261,15 @@ namespace CSharp_串口助手
             {
                 thread.Abort();
                 btnWaveDisplay.Text = "开始显示";
+
+                //恢复串口接收回调事件
+                serialPortCOM.DataReceived += serialPortCOM_DataReceived;
             }
             else
             {
+                //取消串口接收回调事件
+                serialPortCOM.DataReceived -= serialPortCOM_DataReceived;
+
                 //图表刷新线程
                 thread = new Thread(Analysis);
                 thread.IsBackground = true;
