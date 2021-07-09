@@ -16,10 +16,7 @@ namespace CSharp_串口助手
         /// chart控件数据表最大长度， 实测超过1w后巨卡
         /// </summary>
         private const int MaxSeriesLen = 10000;
-        /// <summary>
-        /// chart控件数据源序号
-        /// </summary>
-        private int WaveIndex = 0;
+
         /// <summary>
         /// 记录x轴坐标
         /// </summary>
@@ -32,7 +29,7 @@ namespace CSharp_串口助手
         /// <summary>
         /// chart控件数据源列表
         /// </summary>
-        List<DataTable> dataTables = new List<DataTable>(1000);
+        List<DataTable> dataTables = new List<DataTable>();
         /// <summary>
         /// 图表刷新线程
         /// </summary>
@@ -53,12 +50,9 @@ namespace CSharp_串口助手
                 chartWave.Series[i].YValueMembers = "Series"+ (i+1);
             }
 
-            for (int i = 0; i < 1000; i++)
-            {
-                dataTables.Add(dataTableType.Clone());
-            }
+            dataTables.Add(dataTableType.Clone());
             //绑定数据源
-            chartWave.DataSource = dataTables[WaveIndex];
+            chartWave.DataSource = dataTables[0];
 
             //加载数据
             ckbWave1.Checked = Properties.Settings.Default.ckbWave1;
@@ -156,25 +150,25 @@ namespace CSharp_串口助手
 
                             lock (chartLock)
                             {
-                                dataTables[WaveIndex].Rows.Add(WaveXIndex++, Wave1, Wave2, Wave3, Wave4, Wave5, Wave6, Wave7, Wave8);
+                                dataTables[dataTables.Count - 1].Rows.Add(WaveXIndex++, Wave1, Wave2, Wave3, Wave4, Wave5, Wave6, Wave7, Wave8);
                                 
                                 //记录y值， 后面修改y轴位置
                                 for(int i = 1; i < 9; i++)
                                 {
                                     if(chartWave.Series[i].Enabled)
                                     {   
-                                        yValue = (int)dataTables[WaveIndex].Rows[dataTables[WaveIndex].Rows.Count - 1][i];
+                                        yValue = (int)dataTables[dataTables.Count - 1].Rows[dataTables[dataTables.Count - 1].Rows.Count - 1][i];
                                         break;
                                     }
                                 }
 
                                 //表中超过 MaxSeriesLen 条数据 切换下一个表 一个表中数据越长则图表刷新时间越长
-                                if (dataTables[WaveIndex].Rows.Count >= MaxSeriesLen)
+                                if (dataTables[dataTables.Count - 1].Rows.Count >= MaxSeriesLen)
                                 {
-                                    WaveIndex++;
+                                    dataTables.Add(dataTableType.Clone());
                                     for (int i = MaxSeriesLen/2; i < MaxSeriesLen; i++)
                                     {
-                                        dataTables[WaveIndex].Rows.Add(dataTables[WaveIndex - 1].Rows[i].ItemArray);
+                                        dataTables[dataTables.Count - 1].Rows.Add(dataTables[dataTables.Count - 1 - 1].Rows[i].ItemArray);
                                     }
 
                                     this.BeginInvoke(new Action(() => trackBar1.Maximum += 10));
@@ -182,7 +176,7 @@ namespace CSharp_串口助手
                                     if (ckbUpdata.Checked)
                                     {
                                         //显示最新数据点
-                                        chartWave.DataSource = dataTables[WaveIndex];
+                                        chartWave.DataSource = dataTables[dataTables.Count - 1];
 
                                         this.BeginInvoke(new Action(() => { trackBar1.Value = trackBar1.Maximum; }));
                                     }
@@ -198,16 +192,17 @@ namespace CSharp_串口助手
 
                     if (counter > 20 && yValue < int.MaxValue)
                     {
-                        yValue = int.MaxValue;
+                        int temp = yValue;
                         counter = 0;
+                        yValue = int.MaxValue;
                         this.BeginInvoke(new Action(() => {
-
+                            
                             lock (chartLock)
                             {
                                 //X轴 滚动条位置 保持最新位置 - 99
                                 if (ckbUpdata.Checked)
                                 {
-                                    if (dataTables[WaveIndex].Rows.Count > chartWave.ChartAreas[0].AxisX.ScaleView.Size)
+                                    if (dataTables[dataTables.Count - 1].Rows.Count > chartWave.ChartAreas[0].AxisX.ScaleView.Size)
                                     {
                                         chartWave.ChartAreas[0].AxisX.ScaleView.Position = WaveXIndex - chartWave.ChartAreas[0].AxisX.ScaleView.Size;
                                     }
@@ -217,7 +212,7 @@ namespace CSharp_串口助手
                                     }
 
                                     //Y轴 滚动条位置 保持最新位置
-                                    chartWave.ChartAreas[0].AxisY.ScaleView.Position = yValue - chartWave.ChartAreas[0].AxisY.ScaleView.Size/2;
+                                    chartWave.ChartAreas[0].AxisY.ScaleView.Position = temp - chartWave.ChartAreas[0].AxisY.ScaleView.Size/2;
                                 }
 
                                 //X轴 数据的起始位置和结束位置 
@@ -230,7 +225,7 @@ namespace CSharp_串口助手
                             }
 
                         }));
-
+                        
                     }
 
                 }
@@ -319,12 +314,10 @@ namespace CSharp_串口助手
         {
             lock (chartLock)
             {
-                for (int i = 0; i <= WaveIndex; i++)
-                {
-                    dataTables[i].Clear();
-                }
-                WaveIndex = 0;
+                dataTables.Clear();
                 WaveXIndex = 0;
+
+                dataTables.Add(dataTableType.Clone());
                 //绑定数据源
                 chartWave.DataSource = dataTables[0];
 
@@ -338,6 +331,8 @@ namespace CSharp_串口助手
             if (thread != null && thread.IsAlive)
             {
                 thread.Abort();
+                //刷新图表
+                chartWave.DataBind();
                 btnWaveDisplay.Text = "开始显示";
                 btnWaveSave.Enabled = true;
                 btnWaveLoad.Enabled = true;
@@ -391,15 +386,15 @@ namespace CSharp_串口助手
                             Wave6 = Convert.ToInt32(str[6]);
                             Wave7 = Convert.ToInt32(str[7]);
                             Wave8 = Convert.ToInt32(str[8]);
-                            dataTables[WaveIndex].Rows.Add(WaveXIndex++, Wave1, Wave2, Wave3, Wave4, Wave5, Wave6, Wave7, Wave8);
+                            dataTables[dataTables.Count -1].Rows.Add(WaveXIndex++, Wave1, Wave2, Wave3, Wave4, Wave5, Wave6, Wave7, Wave8);
 
                             //表中超过 MaxSeriesLen 条数据 切换下一个表 一个表中数据越长则图表刷新时间越长
-                            if (dataTables[WaveIndex].Rows.Count >= MaxSeriesLen)
+                            if (dataTables[dataTables.Count - 1].Rows.Count >= MaxSeriesLen)
                             {
-                                WaveIndex++;
+                                dataTables.Add(dataTableType.Clone());
                                 for (int i = MaxSeriesLen / 2; i < MaxSeriesLen; i++)
                                 {
-                                    dataTables[WaveIndex].Rows.Add(dataTables[WaveIndex - 1].Rows[i].ItemArray);
+                                    dataTables[dataTables.Count - 1].Rows.Add(dataTables[dataTables.Count - 1 - 1].Rows[i].ItemArray);
                                 }
 
                                 this.BeginInvoke(new Action(() => trackBar1.Maximum += 10));
@@ -407,13 +402,14 @@ namespace CSharp_串口助手
                                 if (ckbUpdata.Checked)
                                 {
                                     //显示最新数据点
-                                    chartWave.DataSource = dataTables[WaveIndex];
+                                    chartWave.DataSource = dataTables[dataTables.Count - 1];
 
                                     this.BeginInvoke(new Action(() => { trackBar1.Value = trackBar1.Maximum; }));
                                 }
                             }
                         }
                     }
+                    chartWave.ChartAreas[0].AxisX.ScaleView.Position = ((WaveXIndex-1)/ MaxSeriesLen )* MaxSeriesLen;
                     chartWave.DataBind();
                 }
                 catch(Exception exp)
@@ -436,7 +432,7 @@ namespace CSharp_串口助手
                             File.Delete(saveWaveFile.FileName);
                         }
 
-                        for (int i = 0; i <= WaveIndex; i += 2)
+                        for (int i = 0; i < dataTables.Count; i += 2)
                         {
                             foreach (DataRow item in dataTables[i].Rows)
                             {
@@ -462,25 +458,23 @@ namespace CSharp_串口助手
         }
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-            if (WaveIndex != trackBar1.Value / 10)
             {
                 //切换数据源
-                WaveIndex = trackBar1.Value / 10;
-
-                chartWave.DataSource = dataTables[WaveIndex];
-
-                chartWave.DataBind();
+                chartWave.DataSource = dataTables[trackBar1.Value / 10];
+                chartWave.ChartAreas[0].AxisX.ScaleView.Position = trackBar1.Value / 10 * MaxSeriesLen / 2;
             }
 
-            if ((trackBar1.Value % 10) / 10.0 * (dataTables[WaveIndex].Rows.Count / 2) + chartWave.ChartAreas[0].AxisX.ScaleView.Size < MaxSeriesLen)
+            if ((trackBar1.Value % 10) / 10.0 * (dataTables[trackBar1.Value / 10].Rows.Count / 2) + chartWave.ChartAreas[0].AxisX.ScaleView.Size < MaxSeriesLen)
             {
                 //获取x轴起始坐标
-                chartWave.ChartAreas[0].AxisX.ScaleView.Position = (trackBar1.Value % 10) / 10.0 * (dataTables[WaveIndex].Rows.Count / 2);
+                chartWave.ChartAreas[0].AxisX.ScaleView.Position = trackBar1.Value / 10 * MaxSeriesLen/2 + (trackBar1.Value % 10) / 10.0 * (dataTables[trackBar1.Value / 10].Rows.Count / 2);
             }
             else
             {
                 chartWave.ChartAreas[0].AxisX.ScaleView.Position = 0;
             }
+
+            chartWave.DataBind();
         }
     }
 }
