@@ -1001,6 +1001,7 @@ namespace CSharp_串口助手
             this.txbXSize.TabIndex = 30;
             this.txbXSize.Text = "100";
             this.txbXSize.TextChanged += new System.EventHandler(this.txbXSize_TextChanged);
+            this.txbXSize.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbXSize_KeyPress);
             // 
             // label9
             // 

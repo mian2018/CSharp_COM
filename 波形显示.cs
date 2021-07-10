@@ -104,6 +104,7 @@ namespace CSharp_串口助手
             Properties.Settings.Default.labWaveColor6 = labWaveColor6.ForeColor;
             Properties.Settings.Default.labWaveColor7 = labWaveColor7.ForeColor;
             Properties.Settings.Default.labWaveColor8 = labWaveColor8.ForeColor;
+            Properties.Settings.Default.txbXSize = txbXSize.Text;
             Properties.Settings.Default.Save();
 
         }
@@ -288,7 +289,13 @@ namespace CSharp_串口助手
                 item.ChartType = seriesChartType;
             }
         }
-
+        private void txbXSize_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\r')
+            {
+                chartWave.ChartAreas[0].AxisX.ScaleView.Size = int.Parse(txbXSize.Text);
+            }
+        }
         private void txbXSize_TextChanged(object sender, EventArgs e)
         {
             try
@@ -297,7 +304,7 @@ namespace CSharp_串口助手
 
                 if (temp < MaxSeriesLen && temp > 0)
                 {
-                    chartWave.ChartAreas[0].AxisX.ScaleView.Size = temp;
+                    chartWave.ChartAreas[0].AxisX.ScaleView.Size = int.Parse(txbXSize.Text);
                 }
                 else
                 {
@@ -316,7 +323,7 @@ namespace CSharp_串口助手
             {
                 dataTables.Clear();
                 WaveXIndex = 0;
-
+                trackBar1.Maximum = 0;
                 dataTables.Add(dataTableType.Clone());
                 //绑定数据源
                 chartWave.DataSource = dataTables[0];
@@ -325,7 +332,7 @@ namespace CSharp_串口助手
                 chartWave.DataBind();
             }
         }
-
+        
         private void btnWaveDisplay_Click(object sender, EventArgs e)
         {
             if (thread != null && thread.IsAlive)
