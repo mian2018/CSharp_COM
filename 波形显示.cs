@@ -130,7 +130,7 @@ namespace CSharp_串口助手
                 {
                     byte[] bytes = new byte[serialPortCOM.BytesToRead];
                     serialPortCOM.Read(bytes, 0, bytes.Length);
-                    RxCounter += bytes.Length;
+                    this.Invoke(new Action(() => RxCounter += bytes.Length));
                     listBytes.AddRange(bytes);
 
                     while (listBytes.Contains(frameHead) && (listBytes.Count - listBytes.IndexOf(frameHead)) >= frameLen)
