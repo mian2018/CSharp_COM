@@ -388,7 +388,7 @@ namespace CSharp_串口助手
         private void serialPortCOM_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
             //50ms处理一次串口接收
-            //防止BeginInvoke创造的线程过多，导致界面卡死
+            //防止界面卡死
             Delay(50);
 
             if(!serialPortCOM.IsOpen)
@@ -746,6 +746,18 @@ namespace CSharp_串口助手
                     }
                 }
 
+                //防止串口名不是 (COM1) 这种类型的 例如使用虚拟串口软件时 虚拟串口 (COM1->COM2)
+                for (int j = 0; j < strs.Count; j++)
+                {
+                    for(int i = 3; i < strs[j].Length; i++)
+                    {
+                        if(strs[j][i] > '9' || strs[j][i] < '0')
+                        {
+                            strs[j] = strs[j].Substring(0, i);
+                            break;
+                        }
+                    }
+                }
                 return strs.ToArray();
             }
             catch
